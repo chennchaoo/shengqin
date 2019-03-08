@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="themes/68ecshopcom_360buy/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<title>选择城市</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+a, img {
+	border: 0;
+}
+.cf {
+	zoom: 1
+}
+.cf:after {
+	display: block;
+	height: 0px;
+	visibility: hidden;
+	clear: both;
+	overflow: hidden;
+	content: ''
+}
+/* citybox */
+.citybox {
+	border-bottom: #e5e5e5 1px solid;
+	border-left: #e5e5e5 1px solid;
+	padding-bottom: 60px;
+	background: #fff;
+	border-top: #e5e5e5 1px solid;
+	border-right: #e5e5e5 1px solid;
+	box-shadow: 0 0 1px #e5e5e5;
+	width: 998px;
+	margin: 50px auto;
+	font-family:"微软雅黑";
+}
+.citybox h2 {
+	position: relative;
+	padding-bottom: 0px;
+	line-height: 30px;
+	margin: 20px 20px 12px;
+	padding-left: 14px;
+	padding-right: 14px;
+	zoom: 1;
+	display: inline-block;
+	background: #2d9b5e;
+	height: 32px;
+	color: #fff;
+	font-size:20px;
+	font-weight:normal;
+	font-family:"微软雅黑";
+	padding-top: 0px;
+	border-radius: 0
+}
+.citybox h2 span {
+	border-bottom: #fff 6px solid;
+	position: absolute;
+	border-left: #fff 6px solid;
+	line-height: 0;
+	width: 0px;
+	display: block;
+	float: none;
+	height: 0px;
+	font-size: 0px;
+	border-top: #2d9b5e 6px solid;
+	top: 32px;
+	border-right: #fff 6px solid;
+	left: 20px
+}
+.citybox li {
+	border-bottom: #fff 1px solid;
+	border-top: #fff 1px solid
+}
+.citybox p {
+	border-bottom: #fff 1px solid;
+	padding-bottom: 6px;
+	padding-left: 30px;
+	padding-right: 10px;
+	border-top: #fff 1px solid;
+	padding-top: 6px
+}
+.citybox span.label {
+	border-bottom: #ddd 1px solid;
+	border-left: #ddd 1px solid;
+	line-height: 24px;
+	width: 30px;
+	zoom: 1;
+	display: inline-block;
+	height: 30px;
+	color: #666;
+	vertical-align: top;
+	border-top: #ddd 1px solid;
+	margin-right: 5px;
+	border-right: #ddd 1px solid;
+	border-radius: 0
+}
+.citybox span.label strong {
+	border-bottom: #f7f7f7 1px solid;
+	text-align: center;
+	border-left: #f7f7f7 1px solid;
+	width: 28px;
+	display: block;
+	font-family: tahoma;
+	background: #f1f1f1;
+	height: 28px;
+	font-size: 16px;
+	border-top: #f7f7f7 1px solid;
+	border-right: #f7f7f7 1px solid;
+	border-radius: 0
+}
+.citybox span {
+	width: 880px;
+	zoom: 1;
+	display: inline-block;
+	vertical-align: top
+}
+.citybox span i {
+	font-style: normal;
+	margin: 0px 3px;
+	color: #ccc
+}
+.citybox .hover {
+	border-bottom-color: #e5e5e5;
+	border-top-color: #e5e5e5;
+	border-right-color: #e5e5e5;
+	border-left-color: #e5e5e5
+}
+.citybox .hover p {
+	background: #f7f7f7
+}
+.citybox .hover span.label {
+	border-bottom-color: #1fb7bb;
+	border-top-color: #1fb7bb;
+	border-right-color: #1fb7bb;
+	border-left-color: #1fb7bb
+}
+.citybox .hover span.label strong {
+	border-bottom-color: #2d9b5e;
+	border-top-color: #2d9b5e;
+	background: #2d9b5e;
+	color: #fff;
+	border-right-color: #2d9b5e;
+	border-left-color: #2d9b5e
+}
+.citybox a {
+	padding-bottom: 1px;
+	line-height: 20px;
+	font-family: "微软雅黑";
+	margin: 5px 10px;
+	padding: 5px 10px;
+	zoom: 1;
+	display: inline-block;
+	height: 20px;
+	border-radius: 0;
+	color: #666;
+	font-size: 14px;
+	text-decoration: none;
+}
+.citybox a:hover {
+	background: #2d9b5e;
+	color: #fff
+}
+</style>
+</head>
+<body>
+<div class="citybox">
+  <h2>请按字母选择城市<span class="arrow">&raquo;</span></h2>
+  <ol>
+	{foreach from=$arr item=val key=key name=name}
+    <li id="city-A">
+		<p class="cf">
+			<span class="label"><strong>{$key}</strong></span>
+			<span>{foreach from=$val item=v}<a href="area.php?act=changecity&region_id={$v.region_id}&city_name={$v.url}" class="aa">{$v.region_name}</a>{/foreach}</span>
+		</p>
+    </li>
+	{/foreach}
+  </ol>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript">
+$(function (){
+	$(".citybox li").hover(function(){
+		$(this).addClass('hover');
+	}, function(){
+		$(this).removeClass('hover');
+	});
+	
+	$(".aa").click(function(){
+		$(this).dialog('close');
+	});
+});
+</script>
+</body>
+</html>

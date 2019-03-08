@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+	font-family:"微软雅黑";
+	}
+	
+.x-chaxun {
+    width: 86px;
+    height: 33px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    background: #F30;
+    border: medium none;
+    cursor: pointer;
+    float: left;
+    margin-left: 400px;
+    color: #FFF;
+    font-size: 15px;
+    font-family: "微软雅黑";
+    
+}
+.cb-10-a{
+	width:100%;
+	height:30px;
+	}
+ul{
+	list-style:none;
+	
+	}
+.f-c7 {
+    color: #c7c7c7;}
+.totalNum {
+    padding: 0 2px;
+}
+.f-orange {
+    color: #fd7543;
+}
+	
+.inputTips {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    display: block;
+    padding-right: 5px;
+    color: silver;}
+.textCon {
+    font-size: 14px;
+    overflow: hidden;
+    width: 477px;
+    height: 88px;
+    resize: none;
+    border: 0;
+    outline: 0;}
+.select_box {
+	font-size: 14px;
+	color: #999999;
+	float: left;
+	width: 150px;
+	line-height: 31px;
+}
+.select_showbox {
+        width: 150px;
+	border: 1px solid #cecece;
+	height: 31px;
+	//padding-left: 5px;
+	//background:url(../images/sanjaio.png) no-repeat 132px 13px;
+}
+.select_option {
+	border: 1px solid #cecece;
+	border-top: none;
+	display: none;
+	position: absolute;
+}
+.select_option li {
+	padding-left: 5px;
+	background: #fff;
+}
+.select_option li.selected {
+	background-color: #F3F3F3;
+	color: #999;
+	width: 143px;
+	z-index: 999999;
+}
+.select_option li.hover {
+	background: #c8c8c8;
+	color: #fff;
+}
+select {
+	//display: none;
+}
+.body-1{
+	width:1200px;
+	margin:0 auto;
+	height:700px;
+	
+	}
+.float-1{
+	float:left;
+	
+	
+	}
+.left-580{
+	float:left;
+        width:650px;
+	//width:580px;
+	//height:700px;
+	}
+.right-600{
+	float:right;
+	width:540px;
+	height:500px;
+	margin-top:50px;
+	background:#606;
+	
+	}
+
+.mr-20px{
+	margin-right:20px;
+	}
+.ml-20px{
+	margin-left:20px;
+	}
+.h4-biaodan{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	color:#000;
+	font-size:16px;
+	}
+.b-biaodan{
+	height:40px;
+	line-height:40px;
+	color:#F00;
+	
+	
+	}
+.cb-10-biaodan{
+	clear:both;
+	height:10px;
+	}
+.p-biaodan{
+		float:left;
+		line-height:30px;
+		height:30px;
+		font-size:14px;
+		color:#333;
+		}
+.x-danhao {
+	width: 191px;
+	height: 31px;
+	//color: #CCC;
+	float: left;
+	padding-left: 10px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	border: #ccc 1px solid;
+	margin-left: 5px;
+}
+.width-biaodan{
+	width:80px !important;
+	}
+.textDiv {
+    position: relative;
+    float: left;
+    zoom: 1;
+    width: 487px;
+    //height: 182px;
+    padding: 5px;
+    border: 1px solid #c8c8c8;
+    background-color: #fff;}
+.input_text_wrap{
+    position: relative;
+    display: block;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    float: left;
+    font-size: 14px;
+    height: 31px;
+    line-height:31px;
+    margin-right: 5px;
+    padding: 0 8px;}
+.input_text_wrap span{
+    color: #A6A6A6
+}
+.houseAllocation{
+   color: #000;
+   font-size: 14px;
+   height: 36px;
+   line-height: 36px;
+}
+.houseAllocation input{
+    vertical-align:middle;
+    display: inline-block;
+    margin-left: 20px;
+}
+.select_all{
+    display:inline;
+    margin-left:20px;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    cursor:pointer;
+}

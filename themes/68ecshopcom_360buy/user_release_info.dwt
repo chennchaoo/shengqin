@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="themes/68ecshopcom_360buy/css/new_order_member.css" />
+
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/validate/messages_zh.js"></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js'}
+<!--余额额支付密码_添加_START_www.68ecshop.com-->
+{if $action eq 'account_security' || $action eq 'order_detail'}
+<script lang='javascript' type='text/javascript'>
+var action = '';//open_surplus,close_surplus,verify_surplus
+
+function open_surplus_window() {
+  if(action == 'close_surplus' || action == 'verify_surplus'){
+    if(action == 'close_surplus'){
+	document.getElementById("surplus_label2").style.display="none";
+	document.getElementById("surplus_password_input2").style.display="none";
+    }
+    document.getElementById("popup_window").style.display = "";
+  }
+  else if(action == 'open_surplus'){
+    document.getElementById("popup_window").style.display = "";
+    document.getElementById("surplus_label2").style.display = "";
+    document.getElementById("surplus_password_input2").style.display = "";
+  }
+}
+
+function close_surplus_window(){
+  document.getElementById("surplus_password_input1").value="";
+  document.getElementById("surplus_password_input2").value="";
+  document.getElementById("popup_window").style.display="none";
+  document.getElementById("surplus_label2").style.display="none";
+  document.getElementById("surplus_password_input2").style.display="none";
+  action = '';
+}
+
+function open_surplus(){
+  action = 'open_surplus';
+  open_surplus_window();
+}
+
+function close_surplus(){
+  action = 'close_surplus';
+  open_surplus_window();
+}
+
+function end_input_surplus(){
+  if(action == 'open_surplus')
+  {
+    var pwd1 = document.getElementById("surplus_password_input1").value;
+    var pwd2 = document.getElementById("surplus_password_input2").value;
+    var msg = '';
+    if(pwd1 !== pwd2)
+    {
+      msg = "密码不匹配\n";
+    }
+    if(pwd1.length < 6)
+    {
+      msg = msg + "您输入的密码太短\n"
+    }
+
+    if(msg.length > 0)
+    {
+      alert(msg);
+    }
+    else
+    {
+      Ajax.call('user.php?act=open_surplus_password','surplus_password='+pwd1,open_surplus_response,'GET','TEXT',true,true);
+    }
+  }
+  else if(action == 'close_surplus')
+  {
+    var pwd1 = document.getElementById("surplus_password_input1").value;
+    Ajax.call('user.php?act=close_surplus_password','surplus_password='+pwd1,close_surplus_response,'GET','TEXT',true,true);
+  }
+  else if(action == 'verify_surplus')
+  {
+    var pwd1 = document.getElementById("surplus_password_input1").value;
+    Ajax.call('user.php?act=verify_surplus_password','surplus_password='+pwd1,verify_surplus_response,'GET','TEXT',true,true);
+  }
+}
+
+function cancel_input_surplus()
+{
+  close_surplus_window();
+}
+
+function open_surplus_response(obj)
+{
+  if(obj == 1)
+  {
+    window.location="user.php?act=account_security";
+  }
+  else
+  {
+    close_surplus_window();
+    alert('开启失败！');
+  }
+}
+
+function close_surplus_response(obj)
+{
+  if(obj == 1)
+  {
+    window.location="user.php?act=account_security";
+  }
+  else
+  {
+    close_surplus_window();
+    alert('关闭失败！');
+
+  }
+}
+
+function verify_surplus_response(result)
+{
+  if(result == 1)
+  {
+    submit_surplus_form();
+  }
+  else
+  {
+    alert('密码错误！');
+  }
+}
+
+function check_surplus_open(form)
+{
+  var surplus = form[0].value;
+  if(surplus > 0)
+  {
+    Ajax.call("user.php?act=check_surplus_open","",check_surplus_open_response,"GET",true,true);
+  }
+  else
+  {
+    alert('输入的余额必须大于零！');
+  }
+  return false;
+}
+
+function check_surplus_open_response(result)
+{
+  if(result == '1')
+  {
+    action = 'verify_surplus';
+    open_surplus_window();
+  }
+  else
+  {
+    submit_surplus_form();
+  }
+}
+
+function submit_surplus_form(){
+  document.getElementById("formFee").submit();
+}
+</script>
+{/if}
+<!--余额额支付密码_添加_END_www.68ecshop.com-->
+</head>
+<body>
+<!--余额额支付密码_添加_START_www.68ecshop.com--> 
+{if $action eq 'account_security' || $action eq 'order_detail'} 
+<!--弹窗start-->
+<div id="popup_window" style="width:250px;height:auto;margin-left:-125px;margin-top:-75px;left:50%;top:50%;position:fixed;background-color:lightgrey;display:none;z-index:9999;">
+  <label style="width:80%;float:left;font-size:1.3em;margin:5px 10px;height:20px;">请输入余额支付密码:</label>
+  <input id="surplus_password_input1" type="password" style='float:left;margin:5px 10px;width:230px;background-color:white;height:30px;border:none;'/>
+  <label id="surplus_label2" style="width:80%;float:left;font-size:1.3em;display:none;margin:5px 10px;height:20px;">请确认余额支付密码</label>
+  <input id="surplus_password_input2" type="password" style='float:left;margin:5px 10px;width:230px;background-color:white;height:30px;border:none;display:none;'/>
+  <input class='bnt_blue_1' type="button" onclick="end_input_surplus()" value="确定" style="float:left;margin:5px 10px;height:30px;"/>
+  <input class='bnt_blue_1' type="button" onclick="cancel_input_surplus()" value="取消" style="float:right;margin:5px 10px;height:30px;"/>
+</div>
+<!--弹窗end--> 
+{/if} 
+<!--余额额支付密码_添加_END_www.68ecshop.com-->
+<div id="site-nav">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="blank"></div>
+<!--当前位置 start--> 
+<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> 
+<!--当前位置 end-->
+<div class="block clearfix"> 
+  <!--left start-->
+  <div class="AreaL">
+    <div class="box"> <!-- #BeginLibraryItem "/library/user_info.lbi" --><!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem --> </div>
+  </div>
+  <!--left end--> 
+  <!--right start-->
+  <div class="AreaR">
+    <div class="box">
+      <div class="box_1">
+        <div class="userCenterBox boxCenterList clearfix"> {* 代码增加_start  By  www.68ecshop.com 供货商申请开始 *} 
+          <!--#收货地址页面 --> 
+          <!--{if $action eq 'address_list'} --> 
+          {* 包含脚本文件 *}
+          {insert_scripts files='utils.js,transport.js,region.js,shopping_flow.js'} 
+          <script type="text/javascript">
+              region.isAdmin = false;
+              {foreach from=$lang.flow_js item=item key=key}
+              var {$key} = "{$item}";
+              {/foreach}
+              {literal}
+              onload = function() {
+                if (!document.all)
+                {
+                  document.forms['theForm'].reset();
+                }
+              }
+              {/literal}
+            </script>
+          <div class="tabmenu">
+            <ul class="tab pngFix">
+              <li class="first active">地址列表</li>
+            </ul>
+          </div>
+          <div class="alert alert-success">
+            <h4>操作提示：</h4>
+            <ul>
+              <li>您可对已有的地址进行编辑及删除，亦可新增收货地址</li>
+            </ul>
+          </div>
+          <div class="mar_top">
+            <form action="user.php" method="post" name="theForm" onsubmit="return checkConsignee(this)">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#E6E6E6">
+                <tr>
+                  <td align="right" bgcolor="#ffffff">{$lang.country_province}：</td>
+                  <td colspan="3" align="left" bgcolor="#ffffff"><select name="country" id="selCountries_{$sn}" onchange="region.changed(this, 1, 'selProvinces_{$sn}')">
+                      <option value="0">{$lang.please_select}{$name_of_region[0]}</option>
+                      <option value="{$country.region_id}" {if $consignee.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+                    </select>
+                    <select name="province" id="selProvinces_{$sn}" onchange="region.changed(this, 2, 'selCities_{$sn}')">
+                      <option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+                      <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+                    </select>
+                    <select name="city" id="selCities_{$sn}" onchange="region.changed(this, 3, 'selDistricts_{$sn}')">
+                      <option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+                      <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+                    </select>
+                    <select name="district" id="selDistricts_{$sn}" {if !$district_list.$sn}style="display:none"{/if}>
+                      <option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+                      <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+                    </select>
+                    {$lang.require_field} </td>
+                </tr>
+                <tr>
+                  <td align="right" bgcolor="#ffffff">{$lang.consignee_name}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="consignee" type="text" class="inputBg" id="consignee_{$sn}" value="{$consignee.consignee|escape}" />
+                    {$lang.require_field} </td>
+                  <td align="right" bgcolor="#ffffff">{$lang.email_address}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="email" type="text" class="inputBg" id="email_{$sn}" value="{$consignee.email|escape}" />
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" bgcolor="#ffffff">{$lang.detailed_address}：</td>
+                  <td align="left" bgcolor="#ffffff" colspan="3"><input name="address" type="text" class="inputBg" id="address_{$sn}" value="{$consignee.address|escape}" style="width: 746px;"/>
+                    {$lang.require_field}</td>
+               	</tr>
+                <tr>
+                  <td align="right" bgcolor="#ffffff">{$lang.phone}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="tel" type="text" class="inputBg" id="tel_{$sn}" value="{$consignee.tel|escape}"  placeholder="{$lang.tel_placeholder}"/></td>
+                  <td align="right" bgcolor="#ffffff">{$lang.backup_phone}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="mobile" type="text" class="inputBg" id="mobile_{$sn}" value="{$consignee.mobile|escape}" />
+                </td>
+                </tr>
+                <tr>
+                  <td align="right" bgcolor="#ffffff">{$lang.postalcode}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="zipcode" type="text" class="inputBg" id="zipcode_{$sn}" value="{$consignee.zipcode|escape}" /></td>
+                  <td align="right" bgcolor="#ffffff">{$lang.deliver_goods_time}：</td>
+                  <td align="left" bgcolor="#ffffff"><input name="best_time" type="text"  class="inputBg" id="best_time_{$sn}" value="{$consignee.best_time|escape}" /></td>
+                </tr>
+                <tr>
+                <td align="right" bgcolor="#ffffff">&nbsp;</td>
+                <td colspan="3" align="center" bgcolor="#ffffff">
+                    
+                    <input type="submit" name="submit" class="bnt_blue_1" value="{$lang.confirm_edit}" />
+                    <input name="button" type="button" class="bnt_blue"  onclick="if (confirm('{$lang.confirm_drop_address}'))location.href='user.php?act=drop_consignee&id={$consignee.address_id}'" value="{$lang.drop}" />
+                    
+                    
+                    <input type="submit" name="submit" class="bnt_blue_2"  value="{$lang.add_address}"/>
+                    
+                    
+                    <input type="hidden" name="act" value="act_edit_address" />
+                    <input name="address_id" type="hidden" value="{$consignee.address_id}" /></td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <!--#收货地址添加页面 --> 
+          
+        </div>
+      </div>
+      <!--right end--> 
+    </div>
+  </div>
+  <div style="height:15px; line-height:15px; clear:both;"></div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footerindex.lbi" --><!-- #EndLibraryItem --> 
+{* start Add By www.68ecshop.com ecshop开发中心 企业QQ123456789 *} 
+<script language="javascript">
+get_invoice_info('{$order.invoices.0.shipping_name}','{$order.invoices.0.invoice_no}',1);
+
+function get_invoice_info(expressid,expressno,div_id)
+{
+	$("#ul_i").children("li").removeClass();
+	document.getElementById("div_i_"+div_id).className = 'selected';
+	
+$key='yevkZpP1VVTl';//请将123456替换成您在http://www.kuaidiwo.cn/api/申请到的key
+$url ='http://api.kuaidiwo.cn:88/api/?key='.$key.'&com='.$typeCom.'&cno='.$typeNu.'&type=html';
+	Ajax.call(
+		//'plugins/kuaidi100/kuaidi100_post.php?com='+ expressid+'&nu=' + expressno, 
+		'http://api.kuaidiwo.cn:88/api/?key=yevkZpP1VVTl&com='+expressid+'&cno='+$typeNu;
+		'showtest=showtest', 
+		function(data){
+			document.getElementById("retData").innerHTML='快递公司：'+expressid+' &nbsp; 运单号：'+expressno+'<br>';
+			document.getElementById("retData").innerHTML+=data;
+		}, 
+		'GET', 
+		'TEXT', 
+		false
+	);
+}
+
+function get_invoice_info2(expressid,expressno,div_id,order_id)
+{
+	$("#ul_i_"+order_id).children("li").removeClass();
+	document.getElementById("div_i_"+order_id+"_"+div_id).className = 'selected';
+	Ajax.call(
+		'plugins/kuaidi100/kuaidi100_post.php?com='+ expressid+'&nu=' + expressno, 
+		'showtest=showtest', 
+		function(data){
+			document.getElementById("retData_"+order_id).innerHTML='快递公司：'+expressid+' &nbsp; 运单号：'+expressno+'<br>';
+			document.getElementById("retData_"+order_id).innerHTML+=data;
+		}, 
+		'GET', 
+		'TEXT', 
+		false
+	);
+}
+</script> 
+{* end Add By www.68ecshop.com ecshop开发中心 企业QQ123456789 *}
+</body>
+<script type="text/javascript">
+{foreach from=$lang.clips_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+</script>
+</html>

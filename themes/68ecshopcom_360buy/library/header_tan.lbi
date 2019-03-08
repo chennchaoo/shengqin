@@ -1,0 +1,26 @@
+<div id="navOut">
+	<div class="nav">
+		<!--<div class="navLeft">
+			<p>首页</p>
+			<<div class="fenlei">
+				<ul>
+					<!--{foreach from=get_categories_tree(0) item=cat name=cat0}-->
+					<li>
+						 <dl class="fenleiLeft">
+							<dt>{$cat.name}</dt>
+							<dd>
+								<!--{foreach from=$cat.cat_id item=child name=namechild}-->
+									<a href="{$child.url}" target="_blank" title="{$child.name|escape:html}">{$child.name|escape:html}</a>
+								<!--{/foreach}-->
+
+							</dd>
+						 </dl>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+
+		</div>-->
+		{include file='library/head_nav.lbi'}
+	</div>
+</div>

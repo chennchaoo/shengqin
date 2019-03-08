@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="themes/68ecshopcom_360buy/css/style.css" />
+<title>海众文化首页</title>
+<script src="themes/68ecshopcom_360buy/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.5.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/promo_v2.js" charset="utf-8"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/scroll.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$('.fenlei ul li').mouseenter(function(){
+					$(this).stop().animate({'height':'170px'},300).siblings().stop().animate({'height':'44px'},300);
+					$(this).siblings().css('background','url(../themes/68ecshopcom_360buy/img/bg.png) repeat;');
+					
+				}).mouseleave(function(){
+					$('.fenlei ul li').stop().animate({'height':'109px'},300)
+					$(this).siblings().css('background','url(../themes/68ecshopcom_360buy/img/bg.png) repeat;');
+				});
+				
+				$('.myscroll').myScroll({
+					speed: 40, //数值越大，速度越慢
+					rowHeight: 35 //li的高度
+				});
+				
+			})
+			
+		function region()
+		{
+			var diag = new Dialog();
+			diag.Width = 1050;
+			diag.Height = 700;
+			diag.Title = "切换城市";
+			diag.URL = "area.php?act=index";
+			diag.show();
+		}
+		</script>
+ 
+</head>
+
+<body>
+
+<!--------------------右侧悬浮 start------------------------>
+<div id="xuanfu" class="xuanfu">
+	<a href="user.php"><img src="themes/68ecshopcom_360buy/img/zhongxin.png" /></a>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin={$qq}&site=qq&menu=yes" target="_blank" alt="点击这里联系我" title="点击这里联系我"><img src="themes/68ecshopcom_360buy/img/kefu.png" /></a>
+	<a href="#" onclick="chickdisplay()"><img src="themes/68ecshopcom_360buy/img/cha.jpg" /></a>
+</div>
+<!--------------------右侧悬浮 end------------------------>
+
+<!------------------------top-start-------------------> 
+    <!-- #BeginLibraryItem "/library/page_headerindex.lbi" -->
+	<!-- #EndLibraryItem -->
+    <!------------------------top-end------------------->  
+		
+ <!---------------------flright start----------------------->
+ <style>
+.myscroll { height: 175px; margin: 0 auto; font-size: 12px; overflow: hidden;}
+.myscroll li { height: 35px;}
+.myscroll a { color: #333; text-decoration: none;}
+.myscroll a:hover { color: #ED5565; text-decoration: underline;}
+</style>
+ <div id="flright">
+ 	<span><a href="article_cat.php?id=12">更多>></a></span>
+ 	<h4>热点</h4>
+	<div class="myscroll">
+    <ul>
+	<!--{foreach from=$notice item=notice}-->
+    	<li><a href="{$notice.url}">{$notice.title|truncate:14}</a></li>
+	<!--{/foreach}-->
+    </ul>
+	</div>
+    <span><!--更多--></span>
+
+ 
+ </div>          
+        
+ <!---------------------flright start----------------------->          
+        
+        
+        
+        
+ <!---------------------banner start----------------------->       
+		<div id="banner">
+        <div class="promoWD">
+			<!-- #BeginLibraryItem "/library/index_ad3.lbi" -->
+			<!-- #EndLibraryItem -->
+          
+  </div>
+		</div>
+        
+ <!---------------------banner end----------------------->           
+        
+        
+ <!------------------main start------------------------->       
+<div class="cb10"></div>
+<div id="main">
+
+	<!-- #BeginLibraryItem "/library/stores_tab.lbi" -->
+	<!-- #EndLibraryItem -->
+	<div class="cb10"></div>
+    <div class="ccc">
+	<ul  id="reixiao1" id="ceshi">
+		<!-- {foreach name=index_goods from=$hot_goods item=goods}-->
+		<!--{if $smarty.foreach.index_goods.iteration < 13}-->
+    	<li>
+			<a href="{$goods.url}" title="{$goods.name|escape:html}">
+				<img src="{$goods.thumb}" alt="{$goods.name|escape:html}" />
+				<h5>{$goods.short_name|truncate:14}</h5>
+			</a>
+		</li>
+		<!--{/if}-->
+		<!--{/foreach}-->
+    </ul>
+    </div>
+	<div class="ccc">
+	<ul id="reixiao2" style="display:none;">
+		<!-- {foreach name=index_goods from=$new_goods item=goods}-->
+        		<!--{if $smarty.foreach.index_goods.iteration < 13}-->
+            	<li>
+        			<a href="{$goods.url}" title="{$goods.name|escape:html}">
+        				<img src="{$goods.thumb}" alt="{$goods.name|escape:html}" />
+        				<h5>{$goods.short_name|truncate:14}</h5>
+        			</a>
+        		</li>
+        		<!--{/if}-->
+        		<!--{/foreach}-->
+    </ul>
+	</div>
+ <SCRIPT language=javascript>
+ function chick1(){
+		document.getElementById("reixiao2").style.display='none';
+		document.getElementById("reixiao1").style.display='block';
+		document.getElementById("color").style.color='#ed9b01';
+		document.getElementById("color1").style.color='#333';
+}
+function chickdisplay(){
+		document.getElementById("xuanfu").style.display='none';
+}
+
+function chick2(){
+		document.getElementById("reixiao2").style.display='block';
+		document.getElementById("reixiao1").style.display='none';
+		document.getElementById("color").style.color='#333';
+		document.getElementById("color1").style.color='#ed9b01';
+}
+
+</SCRIPT>
+
+<div class="cb10"></div>
+<!-----------------floor1 start----------------------->
+<div class="floor">
+	<h2>F1</h2><h4>产品商城</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    <div class="main-main">
+    	<div class="main-main-left">
+        	<div class="left-1">
+            	<img src="themes/68ecshopcom_360buy/img/1-6.png" /><h3>生活用品</h3>
+                </div>
+				<!--{if $productCate}-->
+                <ul>
+					<!--{foreach from=$productCate item=cat_item name=productCate}-->
+                	<a href="{$cat_item.url}"><li>{$cat_item.cat_name|escape:html}</li></a>
+					<!--{/foreach}-->
+                </ul>
+				<!--{/if}-->
+        </div>
+        <div class="main-main-center">
+			<!-- TemplateBeginEditable name="首页产品商城" -->
+			{insert name='ads' id=1 num=1}
+<!-- TemplateEndEditable -->
+        </div>
+        <div class="main-main-right">
+			<!--{if $life_product}-->
+        	<ul>
+				<!--{foreach from=$life_product item=life name=cat_item_goods}-->
+            	<li><a href="{$life.url}"><img src="{$life.thumb}" height="200" width="200" />
+                <div class="detail">
+                	<p>{$life.name|truncate:12}</p>
+                   <p> <del>售价：<b class="red">{$life.market_price}元</b></del></p>
+                   <p> 会员价：<b class="red">{$life.shop_price}元</b></p>
+                </div>
+                </a></li>
+				<!--{/foreach}-->
+            </ul>
+			<!--{/if}-->
+        </div>
+    </div>
+</div> 
+
+
+<!-----------------floor2 end----------------------->
+
+
+<div class="cb10"></div>
+<!-----------------floor start----------------------->
+<div class="floor">
+	<h2>F2</h2><h4>家政在线服务</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    <div class="main-main">
+    	<div class="main-main-left">
+        	<div class="left-2">
+            	<img src="themes/68ecshopcom_360buy/img/1-6.png" /><h3>精品家政</h3>
+                </div>
+				<!--{if $jiazhengCate}-->
+                <ul class="floor-2">
+					<!--{foreach from=$jiazhengCate item=jiazheng name=cat_item_goods}-->
+					<a href="{$jiazheng.url}"><li>{$jiazheng.cat_name|escape:html}</li></a>
+					<!--{/foreach}-->
+                </ul>
+				<!--{/if}-->
+        </div>
+        <div class="main-main-center">
+			<!-- TemplateBeginEditable name="首页家政在线" -->
+			{insert name='ads' id=2 num=1}
+<!-- TemplateEndEditable -->
+        </div>
+        <div class="main-main-right">
+			<!--{if $jiazhenggoods}-->
+        	<ul>
+				<!--{foreach from=$jiazhenggoods item=goods name=cat_goods}-->
+            	<li>
+					<a href="{$goods.url}">
+						<img src="{$goods.thumb}" alt="{$goods.name|escape:html}" height="200" width="200">
+						<div class="detail">
+							<p>从业经验 ：<b class="red">{$goods.experience}</b></p>
+							<p> <del>服务工资：<b class="red">{$goods.charge_price}</b></del></p>
+							<p> 会员卡：<b class="red">{$goods.member_price}</b></p>
+						</div>
+					</a>
+				</li>
+				<!--{/foreach}-->
+            </ul>
+			<!--{/if}-->
+        </div>
+    </div>
+</div> 
+
+<!-----------------floor2 end----------------------->
+        <div class="cb10"></div>
+<!-----------------floor3 start----------------------->
+<div class="floor">
+	<h2>F3</h2><h4>养老在线服务</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    <div class="main-main">
+    	<div class="main-main-left">
+        	<div class="left-3">
+            	<img src="themes/68ecshopcom_360buy/img/1-6.png" /><h3>养老在线</h3>
+                </div>
+				<!--{if $pension}-->
+                <ul class="floor-3">
+					<!--{foreach from=$pension item=pension name=cat_item_goods}-->
+					<a href="{$pension.url}"><li>{$pension.cat_name|escape:html}</li></a>
+					<!--{/foreach}-->
+                </ul>
+				<!--{/if}-->
+        </div>
+        <div class="main-main-center">
+			<!-- TemplateBeginEditable name="首页养老在线服务" -->
+			{insert name='ads' id=3 num=1}
+<!-- TemplateEndEditable -->
+        </div>
+        <div class="main-main-right">
+			<!--{if $hot_pension}-->
+        	<ul>
+				<!--{foreach from=$hot_pension item=pension name=cat_goods}-->
+            	<li>
+                                        <a href="{$pension.url}">
+						<img src="{$pension.thumb}" alt="{$pension.name|escape:html}" height="200" width="200">
+						<div class="detail">
+							<p>{$pension.name|truncate:14}</p>
+							<p> <del>收费区间：<b class="red">{if $pension.charge_price}{$pension.charge_price}{else}？？{/if}元</b></del></p>
+							<p> 会员卡：<b class="red">{if $pension.member_price}{$pension.member_price}{else}？？{/if}元</b></p>
+						</div>
+					</a>
+				</li>
+				<!--{/foreach}-->
+            </ul>
+            <!--{/if}-->
+        </div>
+    </div>
+</div>
+
+<!-----------------floor3 end----------------------->
+        
+        <div class="cb10"></div>
+<!-----------------floor4 start----------------------->
+<div class="floor">
+	<h2>F4</h2><h4>社区便民服务</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    <div class="main-main">
+    	<div class="main-main-left">
+        	<div class="left-4">
+            	<img src="themes/68ecshopcom_360buy/img/1-6.png" /><h3>社区便民</h3>
+            </div>
+			<!--{if $agent}-->
+			<ul class="floor-4">
+				<!--{foreach from=$agent item=agent name=cat_item_goods}-->
+				<a href="{$agent.url}"><li>{$agent.cat_name|escape:html}</li></a>
+				<!--{/foreach}-->
+			</ul>
+			<!--{/if}-->
+        </div>
+        <div class="main-main-center">
+			<!-- TemplateBeginEditable name="首页中介代理" -->
+			{insert name='ads' id=4 num=1}
+<!-- TemplateEndEditable -->
+        </div>
+        <div class="main-main-right">
+			<!--{if $agent_goods}-->
+        	<ul>
+                <!--{foreach from=$agent_goods item=agents name=cat_goods}-->
+            	<li>
+                    <a href="{$agents.url}">
+                        <!--<img src="themes/68ecshopcom_360buy/img/11-8.png" />-->
+                        <img src="{$agents.thumb}" alt="{$agents.name|escape:html}" height="200" width="200">
+                        <div class="detail">
+                            <p>{$agents.name|truncate:14}</p>
+                            <p> <del>价格：<b class="red">{if $agents.shop_price}{$agents.shop_price}{else}？？{/if}元</b></del></p>
+                            <p> 会员价：<b class="red">{if $agents.promote_price}{$agents.promote_price}
+														{elseif $agents.shop_price}{$agents.shop_price}
+														{else}？？{/if}元</b></p>
+                        </div>
+                    </a>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+			<!--{/if}-->
+            
+        </div>
+    </div>
+    
+</div> 
+<!-----------------floor4 end----------------------->
+
+ <div class="cb10"></div>
+
+<!-----------------floor5 start----------------------->
+<div class="floor">
+	<h2>F5</h2><h4>最新房屋供求信息</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    
+    
+    <div class="floor-5-main">
+    	<div class="floor-left">
+        	<div class="top">
+            	<div class="top-left">
+                	<div class="top-left-1">
+					<!--{if $smarty.session.user_id eq ""}-->
+					<a href="user.php">
+					<!--{else}-->
+                    <a href="release.php?act=rental">
+					<!--{/if}-->
+                    <h2>出租房屋</h2>
+                    <p>出租信息 及时发布</p>
+                    </a>
+                    </div>
+                    <div class="top-left-2">
+					<!--{if $smarty.session.user_id eq ""}-->
+					<a href="user.php">
+					<!--{else}-->
+                    <a href="release.php?act=qiugou">
+					<!--{/if}-->
+                    <h2 class="mt10">买房</h2>
+                    </a>
+                    </div>
+                </div>
+                <div class="top-right">
+					<!--{if $smarty.session.user_id eq ""}-->
+					<a href="user.php">
+					<!--{else}-->
+                    <a href="release.php?act=wanted">
+					<!--{/if}-->
+                    <h2 class="fs46 mt80">求租房屋</h2>
+                    <p class=" fs16">免费发布您的求租信息</p>
+                    </a>
+                </div>
+            
+            </div>
+            <div class="bottom">
+            	<div class="bottom-left">
+                	<a href="#"><img class="mt20 ml20" src="themes/68ecshopcom_360buy/img/11233.png" /></a>
+                
+                </div>
+                <div class="bottom-right">
+				<!--{if $smarty.session.user_id eq ""}-->
+				<a href="user.php">
+				<!--{else}-->
+				<a href="release.php?act=chushou">
+				<!--{/if}-->
+                <h2 class="fs46 w90 mt20 talign ml20 bbr">卖房</h2>
+                
+                 
+				<div class="pppp">
+                <h3>
+                最及时的房产信息
+                
+                </h3>
+                <p class="bb111 fs8 w150 ">TIMELYREALINFORMATION</p>
+                
+                </div>                 
+                </a> 
+                 
+                </div>
+            </div>
+        </div>
+    	<div class="floor-right">
+        	<div class="biaoti">
+            <h5>最新房屋供求信息</h5>
+            
+            </div>
+			<div class="myscroll" style="height:329px;">
+        	<ul>
+                <!--{if $gongqiu}-->
+					<!--{foreach from=$gongqiu item=gongqiu key=key name=gongqiu}-->
+						<?php $key=$key+1; ?>
+						<li><span>更新日期：{$gongqiu.refresh_time} </span><a href="{$gongqiu.url}"><b>0{$key}</b>{$gongqiu.title}   </a></li>
+					<!--{/foreach}-->
+				<!--{/if}-->
+                
+            </ul>
+			</div>
+        
+        </div>
+    
+    
+    </div>
+    
+    
+    
+    
+
+</div> 
+
+
+<!-----------------floor5 end----------------------->
+    
+ <div class="cb10"></div>
+ 
+ <!-----------------floor6 START----------------------->
+  <div class="floor">
+	<h2>F6</h2><h4>家政供求市场</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div>
+    
+    <div class="floor-6">
+    	<div class="floor-6-kuang mr">
+        	<div class="kuang-left br-fff">
+            	<h1><a href="release.php?act=release_list&type_id=2" style="color:#FF3300">我要找家政</a></h1>
+                <p class="pfoor6">胜亲，家庭一站式服务品牌！</p>
+                <h1 class="talign bb111">100%</h1>
+                <p class="pfoor6">雇主信息真实性</p>
+                <div class="cb10"></div>
+                <form name="search">
+					<!--{if $smarty.session.user_id eq ""}-->
+					<a href="user.php" class="input-fabu" style="padding-left:20px;display:inline-block; color:#fff;width:167px;">
+					<!--{else}-->
+					<a href="release.php?act=housewifery" class="input-fabu" style="padding-left:20px;display:inline-block; color:#fff;width:167px;">
+					<!--{/if}-->
+						免费发布信息
+					</a>
+                </form>
+            </div>
+            <div class="kuang-right myscroll">
+            	<div class="cb-none-10"></div>
+				<!--{if $jiazheng}-->
+					<ul>
+					<!--{foreach from=$jiazheng item=val key=key}-->
+						<li onclick="location='{$val.url}'" style="margin:1px 1px 1px 10px">
+						{$val.chenghu} {$val.district}  {$val.title}<br/><a style="float:right">——&nbsp;{$val.surname}&nbsp;{$val.last_current}</a>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+				<!--{/if}-->
+            
+            </div>
+        </div>
+        <div class="floor-6-kuang  ">
+        	<div class="kuang-left br-fff">
+            	<h1><a href="release.php?act=release_list&type_id=1" style="color:#FF3300">我要做家政</a></h1>
+                <p class="pfoor6">胜亲，家庭一站式服务品牌！</p>
+                <h1 class="talign bb111">100%</h1>
+                <p class="pfoor6">雇主信息真实性</p>
+                <div class="cb10"></div>
+                <form name="search">
+				<!--{if $smarty.session.user_id eq ""}-->
+				<a href="user.php" class="input-fabu" style="padding-left:20px;display:inline-block; color:#fff;width:167px;">
+				<!--{else}-->
+				<a href="release.php" class="input-fabu" style="padding-left:20px;display:inline-block; color:#fff;width:167px;">
+				<!--{/if}-->
+					免费发布信息
+				</a>
+                 </form>
+            </div>
+            
+            <div class="kuang-right myscroll">
+            	<div class="cb-none-10"></div>
+				<!--{if $zuojiazheng}-->
+					<ul>
+					<!--{foreach from=$zuojiazheng item=val key=key}-->
+						<li onclick="location='{$val.url}'" style="margin:1px 1px 1px 10px">
+						{$val.chenghu} {$val.district}  {$val.title}<br/><a style="float:right">——&nbsp;{$val.surname}&nbsp;{$val.last_current}</a>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+				<!--{/if}-->
+            
+            </div>
+            
+            
+        </div>
+    
+    
+    </div>
+    
+          
+       
+	</div>
+  <!-----------------floor6 END----------------------->
+  
+<!-----------------floor7 start----------------------->
+<div class="cb10"></div>
+<div class="floor">
+	<h2>F7</h2><h4>品牌商家</h4><p>DOMESTIC SERVICE</p>
+    <div class="cb"></div> 
+    <div class="floor8">
+    
+    	<ul class="b-t">
+            <!--{foreach from=$brand_list item=brand key=k name=cat_goods}-->
+            <li class="b-b {if ($k+1)%6!=0} b-r {/if}" >
+				<a href="{$brand.url}">
+					<img src="data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html}"  />
+				</a>
+			</li>
+            <!--{/foreach}-->
+        </ul>
+    
+    </div>
+    
+     
+</div> 
+  
+<!-----------------floor7 start----------------------->  
+        
+</div>
+
+
+
+<!------------------main end------------------------->       
+  
+<!------------------bottom start-------> 
+	<style>
+	.info-text p{ margin:18px 0 30px 0;}
+	</style>
+	<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+<!------------------bottom end------->      
+        
+        
+</body>
+</html>

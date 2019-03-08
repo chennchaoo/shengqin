@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Keywords" content="{$keywords}" />
+        <meta name="Description" content="{$description}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <!-- TemplateBeginEditable name="doctitle" -->
+        <title>{$page_title}</title>
+        <!-- TemplateEndEditable -->
+        <!-- TemplateBeginEditable name="head" -->
+        <!-- TemplateEndEditable -->
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+        <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="themes/68ecshopcom_360buy/css/input.css" />
+        <script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+        {insert_scripts files='jquery.json.js,transport.js'}
+        {insert_scripts files='form.js'}
+        {* 包含脚本文件 *}
+        {insert_scripts files='common.js'}
+    </head>
+    <body>
+        <div id="site-nav"> 
+            <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+            <div class="blank"></div>
+            <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+            <div class="w main" >
+                <div class="cb-10-a"></div>
+                <div class="body-1">
+                    <div class="left-580">
+                        <form action="release.php?act=do_qiugou" method="post" name="formTrain" enctype="multipart/form-data" onSubmit="return qiugou(this)">
+			
+						<div class="cb-10-biaodan"></div>
+						<div class="h4-biaodan">房源求购基本信息</div>
+						
+							<div class="cb-10-biaodan"></div>
+							<div class="float-1 mr-20px">
+								<p class="p-biaodan"><b class="b-biaodan">*</b>标题：</p>
+								<input class="x-danhao" type="text" id="" name="title" value="{$info.title}" style="width:350px" />
+							</div>
+			
+							<div class="cb-10-biaodan"></div>
+							<p class="p-biaodan"><b class="b-biaodan">*</b>求购地段：</p>
+							{insert_scripts files='utils.js,transport.js,region.js,shopping_flow.js'}
+							<select name="province" id="selProvinces" onchange="region.changed(this, 2, 'selCities')" class="select_showbox" style="width:100px;">
+								<option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+								<!-- {foreach from=$province_list item=province} -->
+								<option value="{$province.region_id}" {if $info.province_id eq $province.region_id}selected{/if}>{$province.region_name}</option>
+								<!-- {/foreach} -->
+							</select>
+							<select name="city" id="selCities" onchange="region.changed(this, 3, 'selDistricts')" class="select_showbox" style="width:100px;">
+								<option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+								{foreach from=$city_list item=city}
+									<option value="{$city.region_id}" {if $info.city_id eq $city.region_id}selected{/if}>{$city.region_name}</option>
+								{/foreach}
+							</select>
+							<select name="district" id="selDistricts" {if !$district_list}style="display:none"{/if} class="select_showbox" style="width:100px;">
+								<option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+								{foreach from=$district_list item=district}
+									<option value="{$district.region_id}" {if $info.region_id eq $district.region_id}selected{/if}>{$district.region_name}</option>
+								{/foreach}
+							</select>
+							
+							<div class="cb-10-biaodan"></div>
+							<p class="p-biaodan"><b class="b-biaodan">*</b>期望户型：</p>
+							<select class="select_showbox" name="housing_type" style="width:110px;">
+								<option value="">请选择类别</option>
+								<!-- {foreach from=$housingType item=type key=key} -->
+								<option value="{$key}"{if $info.housing_type eq $key}selected{/if}>{$type}</option>
+								<!--{/foreach}-->
+							</select>
+							<select name="huxingshi" class="select_showbox">
+								<option value="">请选择户型-室</option>
+								<option value="1"{if $info.huxingshi eq 1}selected{/if}>一室</option>
+								<option value="2"{if $info.huxingshi eq 2}selected{/if}>二室</option>
+								<option value="3"{if $info.huxingshi eq 3}selected{/if}>三室</option>
+								<option value="4"{if $info.huxingshi eq 4}selected{/if}>四室</option>
+								<option value="5"{if $info.huxingshi eq 5}selected{/if}>四室以上</option>
+							</select>
+							
+							<div class="cb-10-biaodan"></div>
+							<div class="cb-10-biaodan"></div>
+							<p class="p-biaodan"><b class="b-biaodan">*</b>期望价格：</p>
+							<div class="input_text_wrap" name="MinPrice">
+								<input id="MinPrice" type="inputText" name="price" value="{$info.price}" placeholder="填写数字" tabindex="18" style="width: 90px;">
+								<span>万</span>
+							</div>
+							<div class="input_text_wrap" style="border:none">-</div>
+							<div class="input_text_wrap" name="MinPrice">
+								<input id="MinPrice" type="inputText" name="big_price" value="{$info.big_price}" placeholder="填写数字" tabindex="18" style="width: 90px;">
+								<span>万</span>
+							</div>
+							
+							<div class="cb-10-biaodan"></div>
+							<div class="cb-10-biaodan"></div>
+							<p class="p-biaodan"><b class="b-biaodan">*</b>期望面积：</p>
+							<div class="input_text_wrap" name="MinPrice">
+								<input id="MinPrice" type="inputText" name="acreage" value="{$info.acreage}" placeholder="填写数字" tabindex="18" style="width: 90px;">
+								<span>㎡</span>
+							</div>
+							<div class="input_text_wrap" style="border:none">-</div>
+							<div class="input_text_wrap" name="MinPrice">
+								<input id="MinPrice" type="inputText" name="big_acreage" value="{$info.big_acreage}" placeholder="填写数字" tabindex="18" style="width: 90px;">
+								<span>㎡</span>
+							</div>
+							
+							<div class="cb-10-biaodan"></div>
+							<p class="p-biaodan"><b class="b-biaodan">*</b>补充说明：</p>
+							<div class="textDiv" style="height:none">
+								<textarea class="textCon" index="0" id="txtOtherBright" name="content">{$info.content}</textarea>
+							</div>
+							<div class="cb-10-biaodan"></div>
+							<div class="cb-10-biaodan"></div>
+							<div class="h4-biaodan">其他信息</div>
+			
+							<div class="cb-10-biaodan"></div>
+							<div class="float-1 mr-20px">
+								<p class="p-biaodan"><b class="b-biaodan">*</b>联系人：</p>
+								<input class="x-danhao" type="text" id="name" name="name" value="{$info.name}"  />
+							</div>
+							
+							<div class="cb-10-biaodan"></div>
+							<div class="float-1 mr-20px">
+								<p class="p-biaodan"><b class="b-biaodan">*</b>联系电话：</p>
+								<input class="x-danhao" type="text" id="tel" name="tel" value="{$info.tel}" />
+							</div>
+							
+							<div class="cb-10-biaodan"></div> 
+							<div class="cb-10-biaodan"></div>
+							<input type="hidden" name="id" value="{$info.id}" />
+							<button type="submit" class="x-chaxun wt100">发布信息</button>
+						</form> 
+                    </div>
+                    <div class="right-600">
+                        <img src="images/11112.jpg" />
+                    </div> 
+
+                </div>
+            </div>
+            <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+            <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $('#photoimg').die('click').live('change', function(){
+                    var status = $("#up_status");
+                    var btn = $("#up_btn");
+                    $("#imageform").ajaxForm({
+                        target: '#preview', 
+			url:'release.php?act=upload&file=chushou',
+                        beforeSubmit:function(){
+                            status.show();
+                            btn.hide();
+                        }, 
+                        success:function(){
+                            status.hide();
+                            btn.show();
+                        }, 
+                        error:function(){
+                            status.hide();
+                            btn.show();
+                        } }).submit();
+                });
+            });
+        </script>
+    </body>
+</html>

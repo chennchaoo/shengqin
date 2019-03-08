@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+{insert_scripts files='form.js'}
+<style>
+.infos div{ line-height:30px;}
+.infos label{display:inline-block;text-align:right;}
+.infos span{ color:#282828}
+.ff1 label{ width:60px}
+.ff2 label{ width:90px}
+.views{ cursor:pointer;}
+.infos img{border:1px solid #ccc; margin:5px;}
+</style>
+</head>
+<body>
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="w main" >
+    <div class="right-extra"> 
+      <div class="box">
+        <div class="box_1 article-68">
+			{if $info.type_id eq 1}<!--我要做家政-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff1">
+					<div><label>联系人：</label><span>{$info.name}</span></div>
+					<div>
+						<label>咨询商家：</label>
+						<span class="showtel" id="paymen_tel{$info.id}">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views"  onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>性别：</label><span>{if $info.gender eq 1}男{else}女{/if}</span></div>
+					<div><label>最高学历：</label><span>{$info.education}</span></div>
+					<div><label>从业年限：</label><span>{$info.work_time}</span></div>
+					<div><label>薪资：</label><span>{$info.price}元/月</span></div>
+					<div><label>现居住地：</label><span>{$info.region_id} {$info.address}</span></div>
+					<div><label>详情：</label><span>{$info.content}</span></div>
+					<!--{if $info.img}-->
+					<div><label>证书：</label></div>
+					<!-- {foreach from=$info.img item=img} -->
+					<div><img src="/{$img.img}" /></div>
+					<!--{/foreach}-->
+					<!--{/if}-->
+				</div>
+			</div>
+			{/if}
+			{if $info.type_id eq 2}<!--我要找家政-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff2">
+					<div><label>联系人：</label><span>{$info.name}</span></div>
+					<div><label>咨询商家：</label><span id="paymen_tel{$info.id}" class="showtel">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views" onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>最高学历：</label><span>{$info.education}</span></div>
+					<div><label>要求从业年限：</label><span>{$info.work_time}</span></div>
+					<div><label>薪资：</label><span>{$info.price}元/月</span></div>
+					<div><label>现居住地：</label><span>{$info.region_id} {$info.address}</span></div>
+					<div><label>详情：</label><span>{$info.content}</span></div>
+				</div>
+			</div>
+			{/if}
+			{if $info.type_id eq 3}<!--房源出租-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff2">
+					<div><label>联系人：</label><span>{$info.name}</span></div>
+					<div><label>咨询商家：</label><span id="paymen_tel{$info.id}" class="showtel">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views" onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>小区名称：</label><span>{$info.district_name}</span></div>
+					<div><label>出租方式：</label><span>{if $info.category_id eq 1}整套出租{elseif $info.category_id eq 2}单间出租{elseif $info.category_id eq 3}床位出租{/if}</span></div>
+					<div><label>地址：</label><span>{$info.region_id} &nbsp;{$info.address}</span></div>
+					<div><label>租金：</label><span>{$info.price}元/月 {if $info.payment}付款方式:{$info.payment}{/if}</span></div>
+					<div><label>房屋户型：</label><span>{$info.huxingshi}室 {$info.huxingting}厅 {$info.huxingwei}卫{if $info.category_id eq 1}共{$info.acreage}㎡{/if}</span></div>
+					<div><label>楼层：</label><span>第{$info.louceng}层 共{$info.zonglouceng}层</span></div>
+					{if $info.category_id eq 2}
+					<div>
+						<label>出租间：</label>
+						<span>出租间面积：{$info.acreage} ㎡&nbsp;&nbsp;
+						卧室：{if $info.bedroom eq 1}主卧{elseif $info.bedroom eq 2}次卧{elseif $info.bedroom eq 3}隔断{/if}&nbsp;&nbsp;
+						要求：{if $info.gender eq 0}女{elseif $info.gender eq 1}男{elseif $info.gender eq 2}男女不限{/if}&nbsp;&nbsp;
+						住宅：{$info.housing_type}&nbsp;&nbsp;	朝向：{$info.orientation}&nbsp;&nbsp;&nbsp;装修：{$info.fitment}
+						</span>
+					</div>
+					<div><label>房屋配置：</label><span>{$info.allocation}</span></div>
+					{/if}
+					{if $info.category_id eq 3}
+					<div><label>出租间要求：</label>
+						<span>{if $info.gender eq 0}女{elseif $info.gender eq 1}男{elseif $info.gender eq 2}男女不限{/if}</span>
+					</div>
+					{/if}
+					<div><label>房源描述：</label><span>{$info.content}</span></div>
+					<!--{if $info.img}-->
+					<div><label>房屋展示：</label></div>
+					<!-- {foreach from=$info.img item=img} -->
+					<div><img src="/{$img.img}" /></div>
+					<!--{/foreach}-->
+					<!--{/if}-->
+				</div>
+			</div>
+			{/if}
+			{if $info.type_id eq 4}<!--房源求租-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff2">
+					<div><label>联系人：</label><span>{$info.name}</span></div>
+					<div><label>咨询商家：</label><span id="paymen_tel{$info.id}" class="showtel">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views" onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>租金：</label><span>{$info.price}元/月</span></div>
+					<div><label>期望厅室：</label><span>{$info.huxingshi}</span></div>
+					<div><label>最晚入住时间：</label><span>{$info.into_time}</span></div>
+					<div><label>求租地段：</label><span>{$info.region_id} {$info.address}</span></div>
+					<div><label>补充说明：</label><span>{$info.content}</span></div>
+				</div>
+			</div>
+			{/if}
+			{if $info.type_id eq 5}<!--房源求购-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff1">
+					<div><label>联系人：</label><span id="paymen_tel{$info.id}">{$info.name}</span></div>
+					<div><label>咨询商家：</label><span class="showtel">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views" onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>期望户型：</label><span>{$info.housing_type} &nbsp;&nbsp;{$info.huxingshi}</span></div>
+					<div><label>期望价格：</label><span>{$info.price}-{$info.big_price}万</span></div>
+					<div><label>期望面积：</label><span>{$info.acreage}-{$info.big_acreage} ㎡</span></div>
+					<div><label>求购地段：</label><span>{$info.region_id} {$info.address}</span></div>
+					<div><label>补充说明：</label><span>{$info.content}</span></div>
+				</div>
+			</div>
+			{/if}
+			{if $info.type_id eq 6}<!--房源出售-->
+			<div style="border:1px solid #E4E4E4; padding:10px 15px 20px;">
+				<div class="tc" style="padding:8px;">
+					<font class="f5 f6">{$info.title|escape:html}</font><br />
+					<font class="f3">更新时间：{$info.refresh_time}</font>
+				</div>
+				<div class="infos ff1">
+					<div><label>联系人：</label><span>{$info.name}</span></div>
+					<div><label>咨询商家：</label><span id="paymen_tel{$info.id}" class="showtel">{$info.tel}</span>&nbsp;&nbsp;&nbsp;
+						<!--{if $smarty.session.user_id eq ""}-->
+						<span class="views">
+							<a href="user.php">查看</a>
+						</span>
+						<!--{else}-->
+						<span class="views" onclick="return paymen_tel({$info.id})">查看</span>
+						<!--{/if}-->
+					</div>
+					<div><label>小区名称：</label><span>{$info.district_name}</span></div>
+					<div><label>房源户型：</label><span>{$info.huxingshi}室 &nbsp;&nbsp;{$info.huxingting}厅&nbsp;&nbsp;{$info.huxingwei}卫 &nbsp;&nbsp;共{$info.acreage}㎡</span></div>
+					<div><label>总价：</label><span>{$info.price}万元</span></div>
+					<div><label>出售地段：</label><span>{$info.region_id} {$info.address}</span></div>
+					<div><label>补充说明：</label><span>{$info.content}</span></div>
+					<!--{if $info.img}-->
+					<div><label>房屋展示：</label></div>
+					<!-- {foreach from=$info.img item=img} -->
+					<div><img src="/{$img.img}" /></div>
+					<!--{/foreach}-->
+					<!--{/if}-->
+				</div>
+			</div>
+			{/if}
+        </div>
+      </div>
+      <div class="blank"></div>
+    </div>
+    <div class="left-extra"> 
+	<!-- #BeginLibraryItem "/library/release_category_tree.lbi" --><!-- #EndLibraryItem -->
+    </div>
+    <div class="blank"></div>
+  </div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+</div>
+</body>
+</html>

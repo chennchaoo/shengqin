@@ -1,0 +1,14 @@
+<div id="main_promo">
+	<div id="slides">
+		<!--{foreach from=$flash name=myflash item=flash}-->
+			<div class="slide"><a href="{$flash.url}" target="_blank" title="{$flash.title}"><img src="{$flash.src}"  alt="{$flash.title}" /></a></div>
+		<!--{/foreach}-->
+	</div>
+</div>
+<div id="dots">
+	<ul>
+	<!--{foreach from=$flash item=flash}-->
+	  <li class="menuItem"><a href="javascript:;"></a></li>
+	<!--{/foreach}-->
+	</ul>
+</div>

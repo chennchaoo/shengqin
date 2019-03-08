@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js"></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js'}
+<script>
+String.prototype.trim = function() {
+// 用正则表达式将前后空格
+//用空字符串替代。
+     return this.replace(/(^\s*)|(\s*$)/g, "");
+} 
+
+function refreshTime(id) {
+	 $.ajax({
+        url  : "user.php?act=refresh_time",
+        type : "POST",
+        data : {id:id},
+        error : function(){alert('Error loading PHP document');},
+        success: function(data){
+            var data = eval('('+data+')');
+			if(data.state==1){
+				$("#refresh_time"+id).html(data.content);
+				return false;
+			}else{
+				alert(data.content);
+				return false;
+			}
+        }
+    });
+}
+
+function del_release(id) {
+	 $.ajax({
+        url  : "user.php?act=del_release",
+        type : "POST",
+        data : {id:id},
+        error : function(){alert('Error loading PHP document');},
+        success: function(data){
+            var data = eval('('+data+')');
+			if(data==1){
+				$("#del_release"+id).remove();
+				return false;
+			}else{
+				alert('删除失败!');
+				return false;
+			}
+        }
+    });
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/base-2011.js"></script>
+<div id="site-nav">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="blank"></div>
+<!--当前位置 start-->
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 end-->
+<div class="block clearfix">
+  <!--left start-->
+  <div class="AreaL">
+    <div class="box"> 
+    <!-- #BeginLibraryItem "/library/user_info.lbi" --><!-- #EndLibraryItem -->
+     <!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem --> 
+     </div>
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div class="AreaR">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
+            <div class="tabmenu">
+            <ul class="tab pngFix">
+              <li class="active"> <a href="#">我的信息发布</a> </li>
+            </ul>
+          </div>
+            <div class="blank"></div>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" class="item_list">
+                <tr>
+                    <th width="120">标题</th>
+                    <th width="80">联系方式</th>
+                    <th width="80">地区</th>
+                    <th width="80">发布时间</th>
+					<th width="80">更新时间</th>
+					<th width="50">操作</th>
+                </tr>
+				<!-- {if $list} -->
+				<!--{foreach from=$list item=val} -->
+                <tr id="del_release{$val.id}">
+                	<td align="center">{$val.title}</td>
+                    <td align="center">{$val.tel}</td>
+                    <td align="center">{$val.address}</td>
+                    <td align="center">{$val.add_time}</td>
+					<td align="center" id="refresh_time{$val.id}">{$val.refresh_time}</td>
+					<td align="center">
+						<a href="{$val.url}">编辑</a>&nbsp;&nbsp;
+						<a href="javascript:;" onclick="return refreshTime({$val.id})">刷新</a>
+						<a href="javascript:;" onclick="return del_release({$val.id})">删除</a>
+					</td>
+                </tr>
+				<!--{/foreach}--> 
+				<!--{/if}-->
+            </table>
+  			<div class="blank"></div>
+			<!-- {if $list} -->
+			<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+            <!-- {else}-->
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" class="item_list">
+            	<tr>
+           		   <td colspan="7" align="center">没有任何晒单评价记录</td>
+              	</tr>
+            </table>
+            <!-- {/if}-->
+      </div>
+     </div>
+    </div>
+  </div>
+  <!--right end-->
+</div>
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+</body>
+<script type="text/javascript">
+{foreach from=$lang.clips_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+</script>
+</html>

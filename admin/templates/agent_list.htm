@@ -1,0 +1,104 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<script type="text/javascript" src="../js/calendar.php?lang="></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<div class="form-div">
+  <form action="javascript:searchLog()" name="searchForm" style="margin:0px">
+  	关键字<input type="text" name="keywords" size="15" />&nbsp;&nbsp;
+    <input type="hidden" name="act" value="list" />
+	时间段：
+	<input name="start_time" type="text" id="start_time" size="15">
+	<input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('start_time', '%Y-%m-%d', false, false, 'selbtn1');" value="选择时间" class="button"/> - 
+	<input name="end_time" type="text" id="end_time" size="15">
+	<input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('end_time', '%Y-%m-%d', false, false, 'selbtn2');" value="选择时间" class="button"/>
+    <input type="submit" name="submit" value="查询" class="button" />
+  </form>
+</div>
+<form method="post" action="agent.php?act=batch_drop" name="listForm">
+<div class="list-div" id="listDiv">
+{/if}
+<table cellspacing='1' cellpadding='3'>
+<tr>
+    <th>
+        <!--<input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />-->
+        编号
+    </th>
+    <th>姓名</th>
+    <th>性别</th>
+    <th>代理产品</th>
+    <th>电话</th>
+    <th>代理地区</th>
+    <th>代理时间</th>
+	<th>总业绩</th>
+    <th>{$lang.handler}</th>
+</tr>
+{foreach from=$list item=val}
+<tr>
+    <td align="center"><!--<input type="checkbox" name="checkboxes[]" value="{$val.id}" />-->{$val.id}</td>
+    <td class="first-cell">{$val.name}</td>
+    <td align="center">{$val.gender}</td>
+    <td align="center">{$val.agent_products}</td>
+    <td align="center">{$val.tel}</td>
+    <td align="center">{$val.province}&nbsp;&nbsp;&nbsp;{$val.city}&nbsp;&nbsp;&nbsp;{$val.region}</td>
+    <td align="center">{$val.join_time}</td>
+    <td align="center">{$val.all_money}</td>
+    <td align="center">
+        <a href="agent.php?act=view&amp;id={$val.id}" title="{$lang.view}">
+            <img src="images/icon_view.gif" width="16" height="16" border="0" />
+        </a>
+        <a href="agent.php?act=edit&id={$val.id}" title="{$lang.edit}">
+            <img src="images/icon_edit.gif" border="0" height="16" width="16" />
+        </a>
+        <a href="javascript:;" onclick="listTable.remove({$val.id}, '确定要删除吗？')" title="{$lang.trash}">
+            <img src="images/icon_trash.gif" width="16" height="16" border="0" />
+        </a>
+    </td>
+</tr>
+{foreachelse}
+<tr>
+  <td class="no-records" colspan="10">{$lang.no_records}</td>
+</tr>
+{/foreach}
+</table>
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td>
+      <!--<input name="remove" type="submit" id="btnSubmit" value="{$lang.drop}" class="button" disabled="true" />-->
+    </td>
+    <td align="right" nowrap="true">
+    {include file="page.htm"}
+    </td>
+  </tr>
+</table>
+{if $full_page}
+</div>
+</form>
+<script type="Text/Javascript" language="JavaScript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+<!--
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+/**
+ * 搜索
+ */
+function searchLog()
+{
+	var keywords = Utils.trim(document.forms['searchForm'].elements['keywords'].value);
+	listTable.filter['keywords'] = keywords;
+	listTable.filter['start_time'] = Utils.trim(document.forms['searchForm'].elements['start_time'].value);
+    listTable.filter['end_time'] = Utils.trim(document.forms['searchForm'].elements['end_time'].value);
+	listTable.filter.page = 1;
+	listTable.loadList();
+}
+//-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

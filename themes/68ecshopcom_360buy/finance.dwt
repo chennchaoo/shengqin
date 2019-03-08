@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{insert_scripts files='form.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="w main" >
+	<h1 style="margin:8px 0;font-size:16px;color:#000;">在线交流</h1>
+	<div>
+		<a href=""><img src="/images/kefu.png" style="width:20px; height:20px;" /></a>
+		<a href=""><img src="/images/kefu.png" style="width:20px; height:20px;" /></a>
+	</div>
+	<h1 style="margin:8px 0;font-size:16px;color:#000;">胜亲金融</h1>
+	<div>O2O只是商业的一种表现形式，概括起来就三点：成本、效率、服务。
+	餐饮是目前互联网化很深的行业，从最初的团购、预定到现在最火的外卖。主要原因是餐饮行业市场很大，但同时存在激烈的竞争，目前人工、水电、房租、原材料成本很大。餐饮企业面临如何提高效率，降低成本的考验，很多餐饮企业寄希望于O2O。
+	一年时间，餐饮企业特别是连锁餐饮企业对外卖越来越重视，笔者由于从事外卖行业，有很深的体会，去年上半年找连锁企业谈外卖，要么直接拒绝，要 么说开会商议。很少可以深入洽谈并合作的。但是在去年下半年，很多连锁主动联系外卖公司，主动提出合作外卖。因为生意难做，希望通过O2O来找到解决方 法。最简单的是开启外卖合作。
+	外卖符合我们提到的O2O的三个点：成本、效率、服务。在不增加餐厅营业面积情况下，增加了就餐人数，间接降低成本(房租、人员成本固定);通 过让客户提前下单，避免堂食高峰期，提升后厨出餐量直接提升后厨效率;外卖是品牌服务的延伸，即降低客户获得餐厅服务难度(送餐到客户家里、办公室等 9)，而不需要亲自到店才可以享受服务。
+	餐厅做外卖存在的难点：如何获得外卖单量?
+	餐厅自己宣传开发同时与第三方平台合作。
+	如何让外送服务和店内的工作有序对接?
+	根据后厨出餐能力和外卖单量情况决定，如果后厨出餐能力足，外卖单量大，可以安排专人负责。
+	是自己建外送团队还是和第三方外送团队合作?
+	如果餐厅外卖单量大，距离近，可以考虑自己团队，如果单量比较分散可以和第三方团队合作。</div>
+  </div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+</div>
+</body>
+</html>

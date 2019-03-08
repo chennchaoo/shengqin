@@ -1,0 +1,22 @@
+array (
+  'act' => 'step_post',
+  'step' => 'payment',
+  'order_id' => '136',
+  'step_act' => 'edit',
+  'payment' => '6',
+  'finish' => ' 确定 ',
+  'ECS_LastCheckOrder' => 'Wed, 07 Sep 2016 09:11:13 GMT',
+  'ECSCP' => 
+  array (
+    'lastfilterfile' => 'F5299398',
+    'lastfilter' => 'a%3A37%3A%7Bs%3A8%3A%22order_sn%22%3Bs%3A0%3A%22%22%3Bs%3A9%3A%22consignee%22%3Bs%3A0%3A%22%22%3Bs%3A5%3A%22email%22%3Bs%3A0%3A%22%22%3Bs%3A7%3A%22address%22%3Bs%3A0%3A%22%22%3Bs%3A7%3A%22zipcode%22%3Bs%3A0%3A%22%22%3Bs%3A3%3A%22tel%22%3Bs%3A0%3A%22%22%3Bs%3A6%3A%22mobile%22%3Bi%3A0%3Bs%3A7%3A%22country%22%3Bi%3A0%3Bs%3A8%3A%22province%22%3Bi%3A0%3Bs%3A4%3A%22city%22%3Bi%3A0%3Bs%3A8%3A%22district%22%3Bi%3A0%3Bs%3A11%3A%22shipping_id%22%3Bi%3A0%3Bs%3A6%3A%22pay_id%22%3Bi%3A0%3Bs%3A12%3A%22order_status%22%3Bi%3A-1%3Bs%3A15%3A%22shipping_status%22%3Bi%3A-1%3Bs%3A10%3A%22pay_status%22%3Bi%3A-1%3Bs%3A7%3A%22user_id%22%3Bi%3A0%3Bs%3A9%3A%22user_name%22%3Bs%3A0%3A%22%22%3Bs%3A16%3A%22composite_status%22%3Bi%3A-1%3Bs%3A12%3A%22group_buy_id%22%3Bi%3A0%3Bs%3A11%3A%22pre_sale_id%22%3Bi%3A0%3Bs%3A7%3A%22sort_by%22%3Bs%3A8%3A%22add_time%22%3Bs%3A10%3A%22sort_order%22%3Bs%3A4%3A%22DESC%22%3Bs%3A10%3A%22start_time%22%3Bs%3A0%3A%22%22%3Bs%3A8%3A%22end_time%22%3Bs%3A0%3A%22%22%3Bs%3A10%3A%22order_type%22%3Bi%3A0%3Bs%3A4%3A%22supp%22%3Bi%3A0%3Bs%3A6%3A%22suppid%22%3Bi%3A0%3Bs%3A10%3A%22inv_status%22%3Bs%3A0%3A%22%22%3Bs%3A8%3A%22inv_type%22%3Bs%3A0%3A%22%22%3Bs%3A22%3A%22vat_inv_consignee_name%22%3Bs%3A0%3A%22%22%3Bs%3A23%3A%22vat_inv_consignee_phone%22%3Bs%3A0%3A%22%22%3Bs%3A8%3A%22add_time%22%3Bs%3A0%3A%22%22%3Bs%3A4%3A%22page%22%3Bi%3A1%3Bs%3A9%3A%22page_size%22%3Bi%3A15%3Bs%3A12%3A%22record_count%22%3Bs%3A2%3A%2266%22%3Bs%3A10%3A%22page_count%22%3Bd%3A5%3B%7D',
+    'lastfiltersql' => 'U0VMRUNUIG8ub3JkZXJfaWQsIG8ub3JkZXJfc24sIG8uYWRkX3RpbWUsIG8ub3JkZXJfc3RhdHVzLCBvLnNoaXBwaW5nX3N0YXR1cywgby5vcmRlcl9hbW91bnQsIG8ubW9uZXlfcGFpZCxvLnBheV9zdGF0dXMsIG8uY29uc2lnbmVlLCBvLmFkZHJlc3MsIG8uZW1haWwsIG8udGVsLCBvLmV4dGVuc2lvbl9jb2RlLCBvLmV4dGVuc2lvbl9pZCwgKCAgIG8uZ29vZHNfYW1vdW50ICsgby50YXggKyBvLnNoaXBwaW5nX2ZlZSArIG8uaW5zdXJlX2ZlZSArIG8ucGF5X2ZlZSArIG8ucGFja19mZWUgKyBvLmNhcmRfZmVlICkgQVMgdG90YWxfZmVlLCBJRk5VTEwodS51c2VyX25hbWUsICfljL/lkI3nlKjmiLcnKSBBUyBidXllciwgby5mcm9tcyAsIGlzX3BpY2t1cCAsby5tb2JpbGUsby5pbnZfcGF5ZWUsby5pbnZfY29udGVudCxvLmludl90eXBlLG8udmF0X2ludl9jb21wYW55X25hbWUsby52YXRfaW52X3RheHBheWVyX2lkLG8udmF0X2ludl9yZWdpc3RyYXRpb25fYWRkcmVzcyxvLnZhdF9pbnZfcmVnaXN0cmF0aW9uX3Bob25lLG8udmF0X2ludl9kZXBvc2l0X2Jhbmssby52YXRfaW52X2JhbmtfYWNjb3VudCxvLmludl9jb25zaWduZWVfbmFtZSxvLmludl9jb25zaWduZWVfcGhvbmUsby5pbnZfY29uc2lnbmVlX2NvdW50cnksby5pbnZfY29uc2lnbmVlX3Byb3ZpbmNlLG8uaW52X2NvbnNpZ25lZV9jaXR5LG8uaW52X2NvbnNpZ25lZV9kaXN0cmljdCxvLmludl9jb25zaWduZWVfYWRkcmVzcyxvLmludl9zdGF0dXMsby5pbnZfcGF5ZWVfdHlwZSxvLmludl9tb25leSBGUk9NIGB6Z3NoZW5ncWluYC5gZWNzX29yZGVyX2luZm9gIEFTIG8gIExFRlQgSk9JTiBgemdzaGVuZ3FpbmAuYGVjc191c2Vyc2AgQVMgdSBPTiB1LnVzZXJfaWQ9by51c2VyX2lkIFdIRVJFIG8uc3VwcGxpZXJfaWQgPSAwIEFORCBvLmV4dGVuc2lvbl9jb2RlICE9ICd2aXJ0dWFsX2dvb2QnIE9SREVSIEJZIGFkZF90aW1lIERFU0MgIExJTUlUIDAsMTU=',
+  ),
+  'bdshare_firstime' => '1468394121974',
+  'ECS_ID' => 'ee919ac866ad8e83e0df9fb3997861e8089416f7',
+  'ECS' => 
+  array (
+    'visit_times' => '14',
+  ),
+  'ECSCP_ID' => '8802c9e5efd26e3a752e4b2a9b0f156812220a2f',
+)

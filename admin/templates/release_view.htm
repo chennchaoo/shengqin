@@ -1,0 +1,358 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+
+<form action="order.php?act=operate" method="post" name="theForm">
+<div class="list-div" style="margin-bottom: 5px">
+{if $info.type_id eq 1}
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>姓名</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>性别</strong></div></td>
+    <td>{if $info.gender eq 1}男{else}女{/if}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>联系方式</strong></div></td>
+    <td>{$info.tel}</td>
+    <td><div align="right"><strong>最高学历</strong></div></td>
+    <td>{$info.education}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>年龄</strong></div></td>
+    <td>{$info.age}</td>
+    <td><div align="right"><strong>从业年限</strong></div></td>
+    <td>{$info.work_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>标题</strong></div></td>
+    <td>{$info.title}</td>
+    <td><div align="right"><strong>薪资</strong></div></td>
+    <td>{$info.price}元/月</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>现居住地</strong></div></td>
+    <td colspan="3">{$info.region_id} &nbsp;&nbsp;{$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>备注</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+
+{if $info.type_id eq 2}
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>联系电话</strong></div></td>
+    <td>{$info.tel}</td>
+  </tr>
+    <tr>
+    <td><div align="right"><strong>标题</strong></div></td>
+    <td>{$info.title}</td>
+    <td><div align="right"><strong>薪资</strong></div></td>
+    <td>{$info.price}元/月</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>最高学历</strong></div></td>
+    <td>{$info.education}</td>
+    <td><div align="right"><strong>要求从业年限</strong></div></td>
+    <td>{$info.work_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>地址</strong></div></td>
+    <td colspan="3">{$info.region_id} &nbsp;&nbsp;{$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>详情</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+{if $info.type_id eq 3}<!--租房-->
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>联系电话</strong></div></td>
+    <td>{$info.tel}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>地址</strong></div></td>
+    <td colspan="3">{$info.region_id} &nbsp;&nbsp;{$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>小区名称</strong></div></td>
+    <td>{$info.district_name}</td>
+    <td><div align="right"><strong>出租方式</strong></div></td>
+    <td>{if $info.category_id eq 1}整租出租{elseif $info.category_id eq 2}单间出租{elseif $info.category_id eq 3}床位出租{/if}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>租金</strong></div></td>
+    <td>{$info.price}</td>
+    <td><div align="right"><strong>楼层</strong></div></td>
+    <td>第{$info.louceng}层 共{$info.zonglouceng}层</td>
+  </tr>
+  <tr>
+	<td><div align="right"><strong>标题</strong></div></td>
+    <td>{$info.title}</td>
+    <td><div align="right"><strong>房屋户型</strong></div></td>
+    <td>{$info.huxingshi}室 {$info.huxingting}厅 {$info.huxingwei}卫{if $info.category_id eq 1}共{$info.acreage}㎡{/if}</td>
+  </tr>
+  {if $info.category_id eq 2}
+  <tr>
+    <td><div align="right"><strong>出租间：</strong></div></td>
+    <td colspan="3">出租间面积：{$info.acreage} ㎡&nbsp;&nbsp;
+		卧室：{if $info.bedroom eq 1}主卧{elseif $info.bedroom eq 2}次卧{elseif $info.bedroom eq 3}隔断{/if}&nbsp;&nbsp;
+		要求：{if $info.gender eq 0}女{elseif $info.gender eq 1}男{elseif $info.gender eq 2}男女不限{/if}&nbsp;&nbsp;
+		住宅：{$info.housing_type}&nbsp;&nbsp;	朝向：{$info.orientation}&nbsp;&nbsp;&nbsp;装修：{$info.fitment}
+	</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>房屋配置</strong></div></td>
+    <td colspan="3">{$info.allocation}</td>
+  </tr>
+  {/if}
+  {if $info.category_id eq 3}
+  <tr>
+    <td><div align="right"><strong>出租间要求：</strong></div></td>
+    <td colspan="3">{if $info.gender eq 0}女{elseif $info.gender eq 1}男{elseif $info.gender eq 2}男女不限{/if}</td>
+  </tr>
+  {/if}
+  {if $info.img neq ''}
+  <tr>
+    <td><div align="right"><strong>图片</strong></div></td>
+    <td colspan="3">
+        {foreach from=$info.img item=img key=key}
+        <img src="/{$img}" width="80" height="80" style=" margin-left: 10px; border: 1px solid #ccc;" />
+        {/foreach}
+    </td>
+  </tr>
+  {/if}
+  <tr>
+    <td><div align="right"><strong>房源描述</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+{if $info.type_id eq 4}<!--求租-->
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>联系电话</strong></div></td>
+    <td>{$info.tel}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>标题</strong></div></td>
+    <td>{$info.title}</td>
+    <td><div align="right"><strong>最晚入住时间</strong></div></td>
+    <td>{$info.into_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>租金</strong></div></td>
+    <td>{$info.price}</td>
+    <td><div align="right"><strong>期望厅室</strong></div></td>
+    <td>{$info.region_id}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>求租地段</strong></div></td>
+    <td colspan="3">{$info.region_id} &nbsp;&nbsp;{$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>补充说明</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+{if $info.type_id eq 5}<!--房源求购-->
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>联系电话</strong></div></td>
+    <td>{$info.tel}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>求购地段</strong></div></td>
+    <td>{$info.region_id} {$info.address}</td>
+    <td><div align="right"><strong>期望户型</strong></div></td>
+    <td>{$info.housing_type} &nbsp;&nbsp;{$info.huxingshi}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>期望价格</strong></div></td>
+    <td>{$info.price}万 - {$info.big_price}万</td>
+    <td><div align="right"><strong>期望面积</strong></div></td>
+    <td>{$info.acreage}㎡ - {$info.big_acreage}㎡</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>补充说明</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+{if $info.type_id eq 6}<!--房源出售-->
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>联系人</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>联系电话</strong></div></td>
+    <td>{$info.tel}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>小区名称</strong></div></td>
+    <td>{$info.district_name}</td>
+    <td><div align="right"><strong>房屋户型</strong></div></td>
+    <td>{$info.huxingshi}室 &nbsp;&nbsp;{$info.huxingting}厅&nbsp;&nbsp;{$info.huxingwei}卫 &nbsp;&nbsp;共{$info.acreage}㎡</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>发布时间</strong></div></td>
+    <td>{$info.add_time}</td>
+    <td><div align="right"><strong>最后更新时间</strong></div></td>
+    <td>{$info.refresh_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>标题</strong></div></td>
+    <td>{$info.title}</td>
+	<td><div align="right"><strong>出售地段</strong></div></td>
+    <td>{$info.region_id} {$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>房源图片</strong></div></td>
+    <td colspan="3">
+        {foreach from=$info.img item=img key=key}
+        <img src="/{$img}" width="80" height="80" style=" margin-left: 10px; border: 1px solid #ccc;" />
+        {/foreach}
+    </td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>补充说明</strong></div></td>
+    <td colspan="3">{$info.content}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+{/if}
+</div>
+
+</form>
+{literal}
+<script language="JavaScript">
+{/literal}
+  var oldAgencyId = {$order.agency_id|default:0};
+{literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+  /**
+   * 把订单指派给某办事处
+   * @param int agencyId
+   */
+  function assignTo(agencyId)
+  {
+    if (agencyId == 0)
+    {
+      alert(pls_select_agency);
+      return false;
+    }
+    if (oldAgencyId != 0 && agencyId == oldAgencyId)
+    {
+      alert(pls_select_other_agency);
+      return false;
+    }
+    return true;
+  }
+</script>
+<script language="javascript">
+get_invoice_info('{$order.invoices.0.shipping_name}','{$order.invoices.0.invoice_no}',1);
+
+function get_invoice_info(expressid,expressno,div_id)
+{
+	$("#ul_i").children("li").removeClass();
+	document.getElementById("div_i_"+div_id).className = 'selected';
+	Ajax.call(
+		'../plugins/kuaidi100/kuaidi100_post.php?com='+ expressid+'&nu=' + expressno, 
+		'showtest=showtest', 
+		function(data){
+			document.getElementById("retData").innerHTML='快递公司：'+expressid+' &nbsp; 运单号：'+expressno+'<br>';
+			document.getElementById("retData").innerHTML+=data;
+		}, 
+		'GET', 
+		'TEXT', 
+		false
+	);
+}
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}

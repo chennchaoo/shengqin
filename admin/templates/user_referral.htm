@@ -1,0 +1,84 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<script type="text/javascript" src="../js/calendar.php?lang="></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<div class="form-div">
+  <form action="javascript:searchLog()" name="searchForm" style="margin:0px">
+    关键字<input type="text" name="keywords" size="15" />&nbsp;&nbsp;
+    <input type="hidden" name="id" value="{$id}" />
+    时间段：
+	<input name="paytime_start" type="text" id="paytime_start" size="15">
+        <input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('paytime_start', '%Y-%m-%d', false, false, 'selbtn1');" value="选择时间" class="button"/> - 
+        <input name="paytime_end" type="text" id="paytime_end" size="15">
+        <input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('paytime_end', '%Y-%m-%d', false, false, 'selbtn2');" value="选择时间" class="button"/>
+    <input type="submit" name="submit" value="查询" class="button" />
+  </form>
+</div>
+<form method="post" action="" name="listForm">
+<div class="list-div" id="listDiv">
+{/if}
+<table cellspacing='1' cellpadding='3'>
+<tr>
+    <td colspan="3">总业绩：{$user_list.all_users_money}</td>
+</tr>
+<tr>
+    <th>{$lang.record_id}</th>
+    <th>会员名称</th>
+    <th>总消费</th>
+</tr>
+{foreach from=$user_list.user_list item=user}
+<tr>
+    <td>{$user.user_id}</td>
+    <td class="first-cell">{$user.user_name|escape}</td>
+    <td>{$user.all_money}</td>
+</tr>
+{foreachelse}
+<tr>
+    <td class="no-records" colspan="4">{$lang.no_records}</td>
+</tr>
+{/foreach}
+</table>
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td>
+      <!--<input name="remove" type="submit" id="btnSubmit" value="{$lang.drop}" class="button" disabled="true" />-->
+    </td>
+    <td align="right" nowrap="true">
+    {include file="page.htm"}
+    </td>
+  </tr>
+</table>
+{if $full_page}
+</div>
+</form>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+<!--
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+/**
+ * 搜索
+ */
+function searchLog()
+{
+        listTable.filter['id'] = Utils.trim(document.forms['searchForm'].elements['id'].value);
+	var keywords = Utils.trim(document.forms['searchForm'].elements['keywords'].value);
+	listTable.filter['keywords'] = keywords;
+        listTable.filter['paytime_start'] = Utils.trim(document.forms['searchForm'].elements['paytime_start'].value);
+        listTable.filter['paytime_end'] = Utils.trim(document.forms['searchForm'].elements['paytime_end'].value);
+	listTable.filter.page = 1;
+	listTable.loadList();
+}
+//-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

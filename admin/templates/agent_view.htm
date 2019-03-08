@@ -1,0 +1,115 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+
+<form action="order.php?act=operate" method="post" name="theForm">
+<div class="list-div" style="margin-bottom: 5px">
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <th colspan="4">详细信息</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>姓名</strong></div></td>
+    <td width="34%">{$info.name}</td>
+    <td width="15%"><div align="right"><strong>性别</strong></div></td>
+    <td>{if $info.gender eq 1}男{else}女{/if}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>公司名称</strong></div></td>
+    <td width="34%">{$info.company_name}</td>
+    <td width="15%"><div align="right"><strong>身份证号</strong></div></td>
+    <td>{$info.id_card}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>代理产品</strong></div></td>
+    <td>{$info.agent_products}</td>
+    <td><div align="right"><strong>代理时间</strong></div></td>
+    <td>{$info.join_time}</td>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>合同有效时间</strong></div></td>
+    <td width="34%">{$info.contract_start_time} 至 {$info.contract_end_time}</td>
+    <td width="15%"><div align="right"><strong>管理费</strong></div></td>
+    <td>{$info.manage_price}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>联系方式</strong></div></td>
+    <td>{$info.tel}</td>
+    <td><div align="right"><strong>代理地区</strong></div></td>
+    <td>{$info.region_id}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>出生日期</strong></div></td>
+    <td>{$info.birthday}</td>
+    <td><div align="right"><strong>添加时间</strong></div></td>
+    <td>{$info.add_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>地址</strong></div></td>
+    <td colspan="3">{$info.address}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>备注</strong></div></td>
+    <td colspan="3">{$info.remark}</td>
+  </tr>
+  <!--<tr>
+    <td colspan='4'><div align="center" style='height:50px;line-height:50px;'><strong>没有发票信息</strong></div></td>
+  </tr>-->
+</table>
+</div>
+
+</form>
+{literal}
+<script language="JavaScript">
+{/literal}
+  var oldAgencyId = {$order.agency_id|default:0};
+{literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+  /**
+   * 把订单指派给某办事处
+   * @param int agencyId
+   */
+  function assignTo(agencyId)
+  {
+    if (agencyId == 0)
+    {
+      alert(pls_select_agency);
+      return false;
+    }
+    if (oldAgencyId != 0 && agencyId == oldAgencyId)
+    {
+      alert(pls_select_other_agency);
+      return false;
+    }
+    return true;
+  }
+</script>
+<script language="javascript">
+get_invoice_info('{$order.invoices.0.shipping_name}','{$order.invoices.0.invoice_no}',1);
+
+function get_invoice_info(expressid,expressno,div_id)
+{
+	$("#ul_i").children("li").removeClass();
+	document.getElementById("div_i_"+div_id).className = 'selected';
+	Ajax.call(
+		'../plugins/kuaidi100/kuaidi100_post.php?com='+ expressid+'&nu=' + expressno, 
+		'showtest=showtest', 
+		function(data){
+			document.getElementById("retData").innerHTML='快递公司：'+expressid+' &nbsp; 运单号：'+expressno+'<br>';
+			document.getElementById("retData").innerHTML+=data;
+		}, 
+		'GET', 
+		'TEXT', 
+		false
+	);
+}
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}

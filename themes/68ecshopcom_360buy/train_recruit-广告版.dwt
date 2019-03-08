@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="themes/68ecshopcom_360buy/css/input.css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{insert_scripts files='form.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<style>
+	table{border:1px solid #ccc;}
+	table th,table td{ border:1px solid #ccc; text-align:center; line-height:30px;}
+</style>
+</head>
+<body>
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="w main" >
+    <div style="font-size:14px;">免费培训课程 中级家政服务员 月嫂
+	备注:免费办证需要有失业证，如果没有失业证需交360元（听课免费）</div>
+	<br />
+	<!-- TemplateBeginEditable name="培训招聘banner广告" -->
+	{insert name='ads' id=5 num=1}
+	<!-- TemplateEndEditable -->
+    <div style=" width:100%; height:20px;"></div>
+    <div style="width:500px; height:auto; float:left;">
+	<h1 style="width:500px;  float:left; height:35px; line-height:35px;  font-size:16px; margin-bottom:5px;">收费培训科目</h1>
+    <Div style="clear:both;"></Div>
+	<table width="500" border="1" style="border-collapse:collapse; float:left;">
+		<tr>
+			<th>母婴护理师</th>
+			<th>养老护理师</th>
+			<th>催乳师</th>
+			<th>家政经理人</th>
+			<th>公共营养师</th>
+		</tr>
+		<tr>
+			<td>1880</td>
+			<td>1880</td>
+			<td>1880</td>
+			<td>1880</td>
+			<td>2880</td>
+		</tr>
+		<tr>
+			<td  colspan="5" style="text-align:left">&nbsp;&nbsp;备注：包含教材费，需到广通学校参加培训</td>
+		</tr>
+	</table>
+    <Div style="clear:both; height:10px;"></Div>
+	<!-- TemplateBeginEditable name="培训招聘左侧广告" -->
+	{insert name='ads' id=6 num=1}
+	<!-- TemplateEndEditable -->
+	<h1 style=" width:500px; float:left; height:35px; line-height:35px; font-size:16px; margin:12px 0 7px 0;">微课堂</h1>
+    <Div style="clear:both;"></Div>
+	<table width="500" border="1" style="border-collapse:collapse; float:left;">
+		<tr>
+			<th>课程</th>
+			<th>听课费</th>
+			<th>办证</th>
+		</tr>
+		<tr>
+			<td>母婴护理师</td>
+			<td>200</td>
+			<td>1000（含听课费）</td>
+		</tr>
+		<tr>
+			<td>养老护理师</td>
+			<td>200</td>
+			<td>1000（含听课费）</td>
+		</tr>
+		<tr>
+			<td>催乳师</td>
+			<td>200</td>
+			<td>1000（含听课费）</td>
+		</tr>
+		<tr>
+			<td>家政经理人</td>
+			<td>200</td>
+			<td>1000（含听课费）</td>
+		</tr>
+		<tr>
+			<td>公共营养师</td>
+			<td>200</td>
+			<td>1000（含听课费）</td>
+		</tr>
+	</table>
+    
+    </div>
+	<div class="cb-10-a"></div>
+	<form action="train_recruit.php?act=insert" method="post" name="formTrain" onSubmit="return trainRecruit(this)">
+	
+		<div  style="float:right; width:630px; background:#eeeeee; padding-left:20px; padding-top:20px; padding-bottom:20px; margin-right:10px;">
+			<div class="h4-biaodan" style="font-size:14px;">
+				<b class="b-biaodan">*</b>基础信息
+			</div>
+		
+		<div class="float-1 mr-20px">
+			<p class="p-biaodan"><b class="b-biaodan">*</b>姓名：</p>
+			<input class="x-danhao" type="text" id="name" name="name" value="" title="请输入您的姓名"  />
+			<p class="p-biaodan ml-20px">
+				<b class="b-biaodan">*</b>性别：
+				<input name="gender" type="radio" value="1" checked="checked">男
+				<input name="gender" type="radio" value="0">女
+			</p>
+			
+			<div class="cb-10-biaodan"></div>
+			<p class="p-biaodan"><b class="b-biaodan">*</b>联系方式：</p>
+			<input class="x-danhao" type="text" id="tel" name="tel" value="" title="请输入您的手机号"  />
+			<p class="p-biaodan ml-20px">
+				<b class="b-biaodan">*</b>出生日期：
+				{html_select_date field_order="YMD" prefix="birthday" time=$info.birthday start_year="-60" end_year="+1" display_days=true month_format="%m"}
+			</p>
+		</div>
+		  
+		<div class="cb-10-biaodan"></div>
+		
+		<div class="h4-biaodan" style="font-size:14px;">
+		<b class="b-biaodan">*</b>代理地区
+		</div>
+		<div class="cb-10-biaodan"></div>
+		<div class="float-1 mr-20px">
+		<select name="province" id="province" onchange="regions(2,this.value)" class="select_showbox">
+			<option value="">请选择...</option>
+			{foreach from=$province_list item=region}
+			<option value="{$region.region_id}" >{$region.region_name}</option>
+			{/foreach}
+		</select>
+		</div>
+	    <div class="float-1 mr-20px">
+			<select name="city" id="city" onchange="regions(3,this.value)" class="select_showbox">
+				<<option value="">请选择...</option>
+				{foreach from=$cities item=region}
+				<option value="{$region.region_id}">{$region.region_name}</option>
+				{/foreach}
+			</select>
+		</div>
+		
+		<div class="float-1">
+			<select name="region_id" id="area" class="select_showbox">
+				<option value="">请选择...</option>
+			</select>
+		</div>
+		
+		<div style="clear:both; height:5px;"></div> 
+			
+		
+		<div class="h4-biaodan" style="font-size:14px;">
+			备注
+		</div>
+			<div class="textDiv" style="height:70px;">
+				<textarea class="textCon f-c7" style="height:60px;" index="0" id="txtOtherBright"></textarea>
+			</div>
+		<div class="cb-10-biaodan"></div> 
+		
+		<button type="submit" class="x-chaxun wt100">确&nbsp;&nbsp;认</button>  
+	 </div>
+	 
+	  
+	
+	</form>
+  </div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+</div>
+<script language="javascript">
+	function regions(region_type,parentId){
+		//alert(region_type+parentId);
+		$.ajax({url  : "train_recruit.php?act=region",
+			type : "POST",
+			data : {region_type:region_type,parentId:parentId},
+			error : function(){alert('Error loading PHP document');},
+			success: function(data){
+				var data = eval('('+data+')');
+				if(region_type == 2){
+					$("#city").html("<option value=''>请选择...</option>");
+					$("#area").html("<option value=''>请选择...</option>");
+					$("#city").html("<option value=''>请选择...</option>"+data);
+					//删除收藏后 刷新这个页面  因为ajax只能更新收藏表格 不能更新顶部的收藏
+					//window.location.reload();
+					return false;
+				}else if(region_type == 3){
+					$("#area").html(data);
+				}
+				else {
+					alert('Delete failed !');
+					return false;
+				} 
+			}
+		});
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{insert_scripts files='form.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="w main" >
+  <style>
+  table{margin:0; padding:0}
+  .border{ border-left:1px solid #ccc;}
+  table tr th{ border-top:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold}
+  table tr td{ border-right:1px solid #ccc;border-bottom:1px solid #ccc;}
+  table tr th,table tr td{ line-height:35px;}
+  .form{ dispaly:block; float:right; margin-bottom:5px;}
+  .form input{border:1px solid #ccc; height:30px; line-height:30px;}
+  </style>
+	<table width="100%" cellspacing="0" cellpadding="5" border="0">
+		<tbody>
+			<tr>
+			<th colspan="7" style="border:none">
+			<form class="form" action="agent.php" name="search_form" method="post">
+				<input name="keywords" type="text" size="40" value="{$search_value}" />
+				<input type="submit" value="{$lang.button_search}" class="bnt_number4" />
+			</form>
+			</th>
+			</tr>
+			<tr>
+				<th class="border">代理商</th>
+				<th>区域</th>
+				<th>代理时间</th>
+				<th>公司名称</th>
+				<th>联系电话</th>
+				<th>单位地址</th>
+			</tr>
+			<!-- {foreach from=$agent_list item=agent} -->
+			<tr>
+				<td class="border" align="center">{$agent.name}</td>
+				<td align="center">{$agent.province}&nbsp;&nbsp;&nbsp;{$agent.city}&nbsp;&nbsp;&nbsp;{$agent.region}</td>
+				<td align="center">{$agent.agent_time}</td>
+				<td align="center">{$agent.company_name}</td>
+				<td align="center">{$agent.tel}</td>
+				<td align="center">{$agent.address}</td>
+			</tr>
+			<!-- {/foreach} -->
+		</tbody>
+	</table>
+	<div class="blank5"></div>
+      <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> 
+  </div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+</div>
+<script language="javascript">
+	function regions(region_type,parentId){
+		//alert(region_type+parentId);
+		$.ajax({url  : "train_recruit.php?act=region",
+			type : "POST",
+			data : {region_type:region_type,parentId:parentId},
+			error : function(){alert('Error loading PHP document');},
+			success: function(data){
+				var data = eval('('+data+')');
+				if(region_type == 2){
+					$("#city").html("<option value=''>请选择...</option>");
+					$("#area").html("<option value=''>请选择...</option>");
+					$("#city").html("<option value=''>请选择...</option>"+data);
+					//删除收藏后 刷新这个页面  因为ajax只能更新收藏表格 不能更新顶部的收藏
+					//window.location.reload();
+					return false;
+				}else if(region_type == 3){
+					$("#area").html(data);
+				}
+				else {
+					alert('Delete failed !');
+					return false;
+				} 
+			}
+		});
+	}
+</script>
+</body>
+</html>

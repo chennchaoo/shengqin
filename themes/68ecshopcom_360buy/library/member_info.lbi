@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<em class="tel" style="display:inline-block; height:28px; line-height: 28px;">全国统一服务热线：0539-8888888 </em>
+{if $user_info}
+<em style="padding-left:15px;">{$user_info.username} {$lang.welcome_return}！</em> 
+<a class="sn-login" href="user.php" target="_top">{$lang.user_center}</a>
+<a class="sn-register" href="user.php?act=logout" target="_top">{$lang.user_logout}</a> 
+{else} 
+<em style="padding-left:15px;">{$lang.welcome}!</em>
+<a class="sn-login" href="user.php" target="_top">请登录</a>
+<a class="sn-register" href="register.php" target="_top">免费注册</a> 
+{/if}

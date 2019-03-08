@@ -1,0 +1,74 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $helps}
+<div class="cb30"></div>
+<div id="footers">
+	<div class="footer-main">
+    
+	<div class="footer-1 ml20 mr10">
+    	<img src="themes/68ecshopcom_360buy/img/foote-1.png" />
+        <h4>金牌品质保证</h4>
+        <p>优选品质 购物无忧</p>
+    
+    </div>
+    
+    <div class="footer-1 ml20 mr10">
+    	<img src="themes/68ecshopcom_360buy/img/foote-2.png" />
+        <h4>7天无理由退换货</h4>
+        <p>为您提供无忧服务保障</p>
+    
+    </div>
+    
+    <div class="footer-1 ml20 mr10">
+    	<img src="themes/68ecshopcom_360buy/img/foote-3.png" />
+        <h4>线下服务体验</h4>
+        <p>为您呈现不一样的购物体验</p>
+    
+    </div>
+    
+    <div class="footer-1 ml20 mr10">
+    	<img src="themes/68ecshopcom_360buy/img/foote-4.png" />
+        <h4>帮助中心</h4>
+        <p>您的购物指南</p>
+    </div>
+	</div>
+</div>
+<!------------------footer end------->
+ <div class="cb10"></div> 
+<div id="bottom">
+	<div class="left"></div>
+	<div class="center">
+	<!-- {foreach from=$helps item=help_cat name=no} -->
+    	<ul>
+        	<li>{$help_cat.cat_name}
+            	<ul>
+				<!-- {foreach from=$help_cat.article item=item} -->
+                	<li><a href="help.php?id={$item.article_id}">{$item.short_title}</a></li>
+				<!-- {/foreach} -->
+                </ul>
+            
+            </li>
+        </ul>
+    <!-- {/foreach} -->
+    </div>
+
+	 <div class="center-1">
+     	<div class="center-1-1">
+        	<img src="themes/68ecshopcom_360buy/img/shouji.png" width="91" height="92" />
+            <p>手机二维码</p>
+        </div>
+        <div class="center-1-1 ml20">
+        <img src="themes/68ecshopcom_360buy/img/weixin.png" width="91" height="92" />
+        <p>微信二维码</p>
+        </div>
+        </div>
+        
+        <div class="right">
+        
+        	<h2>服务热线</h2>
+            <h4>400-0539-221</h4>
+        </div>
+
+
+</div>
+<div class="cb10"></div> 
+{/if}

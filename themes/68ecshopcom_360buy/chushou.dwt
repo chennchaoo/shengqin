@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Keywords" content="{$keywords}" />
+        <meta name="Description" content="{$description}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <!-- TemplateBeginEditable name="doctitle" -->
+        <title>{$page_title}</title>
+        <!-- TemplateEndEditable -->
+        <!-- TemplateBeginEditable name="head" -->
+        <!-- TemplateEndEditable -->
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+        <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="themes/68ecshopcom_360buy/css/input.css" />
+        <script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+        <script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery.wallform.js" ></script>
+        {insert_scripts files='jquery.json.js,transport.js'}
+        {insert_scripts files='form.js'}
+        {* 包含脚本文件 *}
+        {insert_scripts files='common.js'}
+        <style type="text/css">
+            .preview{width:200px;border:solid 1px #dedede; margin:10px;padding:10px;}
+            .demo p{line-height:26px}
+            .btn{position: relative;overflow: hidden;margin-right: 4px;display:inline-block;*display:inline;padding:4px 10px 4px;font-size:14px;line-height:18px;*line-height:20px;color:#fff;text-align:center;vertical-align:middle;cursor:pointer;background-color:#5bb75b;border:1px solid #cccccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-bottom-color:#b3b3b3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+            .btn input {position: absolute;top: 0; right: 0;margin: 0;border: solid transparent;opacity: 0;filter:alpha(opacity=0); cursor: pointer;}
+            #preview{margin-top:10px; overflow:hidden}
+			#preview img{width:60px;height:60px;}
+			#preview .xiaotu{width:100px;border:1px solid #ccc;display:inline-block;overflow:hidden}
+			#preview .xiaotu span{display:inline-block;width:100px;text-align:center}
+			#preview .xiaotu span a{text-decoration:none}
+        </style>
+    </head>
+    <body>
+        <div id="site-nav"> 
+            <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+            <div class="blank"></div>
+            <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+            <div class="w main" >
+                <div class="cb-10-a"></div>
+                <div class="body-1">
+                    <div class="left-580">
+                        <form action="release.php?act=do_chushou" method="post" id="imageform" name="formTrain" enctype="multipart/form-data" ><!--onSubmit="return chushou(this)"-->
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>小区名称：</p>
+                            <input class="x-danhao" type="text" value="{$info.district_name}" id="district_name" name="district_name" placeholder="只填写小区名，例阳光花园" style="width:350px;" />
+
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>位置：</p>
+                            {insert_scripts files='utils.js,transport.js,region.js,shopping_flow.js'}
+                            <select name="province" id="selProvinces" onchange="region.changed(this, 2, 'selCities')" class="select_showbox" style="width:100px;">
+                                <option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+                                <!-- {foreach from=$province_list item=province} -->
+								<option value="{$province.region_id}" {if $info.province_id eq $province.region_id}selected{/if}>{$province.region_name}</option>
+								<!-- {/foreach} -->
+                            </select>
+                            <select name="city" id="selCities" onchange="region.changed(this, 3, 'selDistricts')" class="select_showbox" style="width:100px;">
+                                <option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+								{foreach from=$city_list item=city}
+									<option value="{$city.region_id}" {if $info.city_id eq $city.region_id}selected{/if}>{$city.region_name}</option>
+								{/foreach}
+                            </select>
+                            <select name="district" id="selDistricts" {if !$district_list}style="display:none"{/if} class="select_showbox" style="width:100px;">
+                                <option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+								{foreach from=$district_list item=district}
+								<option value="{$district.region_id}" {if $info.region_id eq $district.region_id}selected{/if}>{$district.region_name}</option>
+								{/foreach}
+                            </select>
+
+                            <div class="cb-10-biaodan"></div>
+                            <div class="float-1 mr-20px">
+                                <p class="p-biaodan">&nbsp;&nbsp;</p>
+                                <input class="x-danhao" type="text" id="address" name="address" value="{$info.address}" style="margin-left:40px;width:350px;" placeholder="请输入具体地址" />
+                            </div>
+
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>房屋户型：</p>
+                            <div class="input_text_wrap" name="huxingshi">
+                                <input type="inputText" name="huxingshi" value="{$info.huxingshi}" tabindex="8" placeholder="1" style="width: 60px;">
+                                    <span>室</span>
+                            </div>
+                            <div class="input_text_wrap" name="huxingting">
+                                <input id="huxingting" type="inputText" name="huxingting" value="{$info.huxingting}" tabindex="8" placeholder="1" style="width: 60px;">
+                                    <span>厅</span>
+                            </div>
+                            <div class="input_text_wrap" name="huxingwei">
+                                <input id="huxingwei" type="inputText" name="huxingwei" value="{$info.huxingwei}" tabindex="8" placeholder="1" style="width: 60px;">
+                                    <span>卫</span>
+                            </div>
+                            <div class="input_text_wrap" name="area" id="squareMeter">
+                                <span>共</span>
+                                <input id="total_area" type="inputText" name="total_area" value="{$info.acreage}" placeholder="建筑面积" tabindex="8" style="width: 60px;">
+                                    <span>㎡</span>
+                            </div>
+
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>总价：</p>
+                            <div class="input_text_wrap">
+                                <input type="inputText" name="price" value="{$info.price}" tabindex="8" placeholder="1" style="width: 60px;">
+                                    <span>万元</span>
+                            </div>
+
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>标题：</p>
+                            <input class="x-danhao" type="text" value="{$info.title}" id="title" name="title" placeholder="例：兰山区奥尔诺财富中心 1室1厅1卫 100平米" style="width:350px;" />
+
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan">房源图片：</p>
+                            <div id="up_status" style="display:none"><img src="themes/68ecshopcom_360buy/img/loader.gif" alt="uploading"/></div>
+                            <div id="up_btn" class="btn">
+                                <span>添加图片</span>
+                                <input id="photoimg" type="file" name="photoimg">
+                            </div>
+                            <div id="preview">
+								<!--{if $info.img}-->
+								<!-- {foreach from=$info.img item=img} -->
+								<div class="xiaotu" id="del{$img.id}">
+									<span><a href="javascript:;" onclick="del({$img.id},'{$img.id}','{$img.img}')">[ - ]</a></span><!--del()第一个唯一标识；第二个修改时为图片id，新增时为空；第三个图片地址-->
+									<img class="preview" src="{$img.img}">
+									<input type="hidden" value="{$img.img}" name="zhengshu[]">
+								</div>
+								<!-- {/foreach} -->
+								<!--{/if}-->
+							</div>
+                            
+                            <div class="cb-10-biaodan"></div>
+                            <p class="p-biaodan"><b class="b-biaodan">*</b>补充说明：</p>
+                            <div class="textDiv" style="height:none">
+                                <textarea class="textCon" index="0" id="txtOtherBright" name="content" placeholder="个性且详尽的房源描述可以加速出售您的房子噢…">{$info.content}</textarea>
+                            </div>
+                            <div class="cb-10-biaodan"></div>
+                            <div class="cb-10-biaodan"></div>
+                            <div class="h4-biaodan">其他信息</div>
+
+                            <div class="cb-10-biaodan"></div>
+                            <div class="float-1 mr-20px">
+                                <p class="p-biaodan"><b class="b-biaodan">*</b>联系人：</p>
+                                <input class="x-danhao" type="text" id="name" name="name" value="{$info.name}"  />
+                            </div>
+
+                            <div class="cb-10-biaodan"></div>
+                            <div class="float-1 mr-20px">
+                                <p class="p-biaodan"><b class="b-biaodan">*</b>联系电话：</p>
+                                <input class="x-danhao" type="text" id="tel" name="tel" value="{$info.tel}" />
+                            </div>
+
+                            <div class="cb-10-biaodan"></div> 
+                            <div class="cb-10-biaodan"></div>
+							<input type="hidden" name="id" value="{$info.id}" />
+							<input  type="button" name="submit1" class="x-chaxun wt100" onclick="chushou()" value="发布信息">
+                            <!--<button type="submit" class="x-chaxun wt100" onclick="return chushou(this.form)">发布信息</button>-->
+                        </form>	  
+                    </div>
+                    <div class="right-600">
+                        <img src="images/11112.jpg" />
+                    </div> 
+
+                </div>
+            </div>
+            <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+            <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $('#photoimg').die('click').live('change', function(){
+                    var status = $("#up_status");
+                    var btn = $("#up_btn");
+                    $("#imageform").ajaxForm({
+                        target: '#preview', 
+			url:'release.php?act=upload&file=chushou',
+                        beforeSubmit:function(){
+                            status.show();
+                            btn.hide();
+                        }, 
+                        success:function(){
+                            status.hide();
+                            btn.show();
+                        }, 
+                        error:function(){
+                            status.hide();
+                            btn.show();
+                        } }).submit();
+                });
+            });
+        </script>
+    </body>
+</html>

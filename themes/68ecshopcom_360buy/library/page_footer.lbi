@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- service end  -->
+
+<div class="site-footer">
+  <div class="wrapper">
+    <div class="footer-info clearfix">
+      <div class="info-text">
+		<!--{if $txt_links}-->
+		<div style="width:1200px; margin:0 auto; height:30px; text-align:center; line-height:30px;">友情链接：
+		<!--开始文字类型的友情链接{foreach from=$txt_links item=link name=name}-->
+		<a style="color:#333; margin-right:10px;" title="{$link.name}" target="_blank" href="{$link.url}">{$link.name}</a>{if !$smarty.foreach.name.last}丨 {/if}   
+		<!--结束文字类型的友情链接{/foreach}-->
+		</div>
+		<!--{/if}-->
+		<p style="text-align:center; margin:3px 0px 30px 0px;">
+      <a href="javascript:;">{$copyright}</a> <a href="javascript:;">{$shop_address} {$shop_postcode}</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer end  -->
+<script type="text/javascript">
+Ajax.call('api/okgoods.php', '', '', 'GET', 'JSON');
+//预售
+Ajax.call('pre_sale.php?act=check_order', '', '', 'GET', 'JSON');
+</script>

@@ -1,0 +1,63 @@
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:00 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:02 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:26 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:26 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:28 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:28 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:28 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:33:32 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:54 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:55 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:55 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:35:59 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:01 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:03 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:05 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[23-Apr-2016 14:36:05 Asia/Chongqing] PHP Notice:  Constant ADMIN_PATH already defined in D:\wwwroot\shengqin\wwwroot\data\config.php on line 28
+[11-May-2016 14:23:19 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\shengqin\wwwroot\supplier\includes\lib_goods.php on line 299
+[11-May-2016 14:32:00 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\shengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[18-Jun-2016 09:20:06 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\shengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 10:54:45 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 11:14:41 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 11:22:51 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 11:28:44 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 11:33:08 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 14:14:58 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 14:37:14 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[01-Jul-2016 14:37:41 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[19-Jul-2016 10:20:10 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[19-Jul-2016 15:37:58 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[20-Jul-2016 14:36:47 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
+[20-Jul-2016 14:38:36 PRC] PHP Warning:  Invalid argument supplied for foreach() in D:\wwwroot\zgshengqin\wwwroot\supplier\includes\lib_goods.php on line 300
