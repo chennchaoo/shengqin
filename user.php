@@ -356,7 +356,9 @@ function action_default ()
 	                                                // print_r(get_user_reminding($user_id));
 	$smarty->assign('user_notice', $_CFG['user_notice']);
 	$smarty->assign('prompt', get_user_prompt($user_id)); // 获取用户参与活动信息
-	$smarty->display('user_clips.dwt');
+	//$smarty->display('user_clips.dwt');
+	$smarty->assign('action','profile');
+	$smarty->display('user_transaction.dwt');
 }
 
 function action_getverifycode ()
