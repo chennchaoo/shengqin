@@ -87,8 +87,121 @@
               {else}已验证{/if}</a> </div>
             </div>
           </div>
-
-
+          <div class="middle order">
+            <div class="line1 clearfix">
+              <div class="title"><i></i><span>交易提醒</span></div>
+              <div class="status">
+                <ul>
+                  <li><a href="user.php?act=order_list&composite_status=0" title="未确认订单">未确认<span id="uc_dfkdd">{$shu.daif}</span></a><i></i></li>
+                  <li><a href="user.php?act=order_list&composite_status=100" title="待付款订单">待付款<span id="uc_dshdd">{$shu.dais}</span></a><i></i></li>
+                  <li><a href="user.php?act=my_comment" title="待评价商品">待评价<span id="uc_dpjsp">{$num_comment}</span></a></li>
+                </ul>
+              </div>
+              <a class="more" href="user.php?act=order_list" title="查看全部订单">查看全部订单 &gt;</a></div>
+            <!-- *待付款数量为0时 start--> 
+            {if $reminding eq array() }
+            <div class="emptyFrame clearfix" > <i class="user_bg"></i><span>您好久没在商城购物了，这里空空的，赶快去购物吧！</span> </div>
+            <!-- *待付款数量为0时 end--> 
+            <!-- *待付款数量不为0时,限制最多显示4个付款订单 start--> 
+            {else}
+            <div class="proListUc"  > {foreach from=$reminding item=jiao}
+              <ul class="listLine clearfix">
+                <li>
+                  <ul class="img clearfix">
+                    <li style="position:relative"> <a href="user.php?act=order_detail&order_id={$jiao.order_id}" title="{$jiao.goods_name}" target="_blank"> 
+                      <!-- {if $jiao.goods_id gt 0 && $jiao.extension_code neq 'package_buy'} 商品 --> 
+                      <img src="{$jiao.goods_thumb}" alt="{$jiao.goods_name}" /> 
+                      <!-- {elseif $jiao.goods_id gt 0 && $jiao.extension_code eq 'package_buy'} --> 
+                      <img src="themes/68ecshopcom_360buy/images/jmpic/ico_cart_package.gif" border="0" title="{$jiao.goods_name|escape:html}" /> 
+                      <!-- {/if} --> 
+                      </a> <span style="height:15px;line-height:15px;position:absolute;top:0px;right:0px;z-index:10;background:#ED5854;color:#fff;padding:0px 3px;">{$jiao.shu}</span> </li>
+                  </ul>
+                </li>
+                <li class="name"><a href="user.php?act=order_detail&order_id={$jiao.order_id}" title="{$jiao.goods_name}" target="_blank">{$jiao.goods_name}</a></li>
+                <li class="attr">{$jiao.goods_attr}</li>
+                <li class="type">{$jiao.handler}</li>
+                <li class="check"> <a href="user.php?act=order_detail&order_id={$jiao.order_id}" title="查看订单" target="_blank">查看</a> </li>
+              </ul>
+              {/foreach} </div>
+            {/if} 
+            <!-- *待付款数量不为0时 end--> 
+          </div>
+          <div class="middle cart">
+            <div class="line1 clearfix">
+              <div class="title"><i></i><span>我的购物车</span></div>
+            </div>
+            {if $gouwuche eq array()} 
+            <!-- *购物车内数量为0时 start-->
+            <div class="emptyFrame_cart" > <i class="user_bg"></i><span>您的购物车里空空的，赶快去购物吧！</span> </div>
+            {else} 
+            <!-- *购物车内数量为0时 end--> 
+            <!-- *购物车内数量不为0时 start--> 
+            <script type="text/javascript" charset="utf-8" src="themes/68ecshopcom_360buy/js/easyscroll.js"></script>
+            <div class="proListUc_cart">
+              <div class="div_scroll">
+                <div style="float:left; height:auto; width:auto">
+                  <ul class="listLine_cart clearfix">
+                    {foreach  from=$gouwuche item=che}
+                    <li> <a href="goods.php?id={$che.goods_id}" target="_blank" title="{$che.goods_name}" class="pic"> <img src="{$che.goods_thumb}" alt="" /> </a> <a href="goods.php?id={$che.goods_id}" target="_blank" title="{$che.goods_name}" class="name">{$che.goods_name}</a>
+                      <p> 本店价：<font style="color:#FF966E">￥{$che.goods_price}</font> </p>
+                    </li>
+                    {/foreach}
+                  </ul>
+                </div>
+              </div>
+              <p class="more"> <a href="flow.php" target="_blank" title="查看购物车所有商品">查看购物车所有商品</a> </p>
+            </div>
+            {/if} 
+            <!-- *购物车内数量不为0时 end--> 
+          </div>
+          <div class="middle exchange">
+            <div class="line1 clearfix">
+              <div class="title"><i></i><span>积分兑换</span></div>
+              <a class="more" href="exchange.php" title="进入积分商城">进入积分商城 &gt;</a> </div>
+            {if $jifen eq array() } 
+            <!-- *积分兑换商品为0时 start-->
+            <div class="emptyFrame_exchange clearfix" > <i class="user_bg"></i><span>没有可兑换的商品呦！随便去逛逛吧！</span> </div>
+            <!-- *积分兑换商品为0时 end--> 
+            {else} 
+            <!-- *积分兑换商品不为0时,限制最多显示4个付款订单 start-->
+            <div class="exchangeList">
+              <div class="colFrame">
+                <ul style="left: 26px;" class="clearfix">
+                  {foreach from=$jifen item=ji}
+                  <li class="first"> <a href="exchange.php?id={$ji.goods_id}&act=view" title="{$ji.goods_name}" target="_blank" class="img"> <img src="{$ji.goods_thumb}" alt="{$ji.goods_name}"> <span>{$ji.exchange_integral}积分</span> </a> <a href="exchange.php?id={$ji.goods_id}&act=view" title="{$ji.goods_name}" target="_blank" class="name">{$ji.goods_name}</a> </li>
+                  {/foreach}
+                </ul>
+              </div>
+            </div>
+            <!-- *积分兑换商品不为0时 end--> 
+            {/if} </div>
+          <div class="middle history">
+            <div class="line1 clearfix">
+              <div class="title"><i></i><span>我的足迹</span></div>
+            </div>
+            {if $mai eq array()} 
+            <!-- *浏览历史为0时 start-->
+            <div class="emptyFrame_history" > <i class="user_bg"></i><span>您还没有留下任何足迹！</span> </div>
+            <!-- *浏览历史为0时 end--> 
+            <!-- *浏览历史不为0时 start--> 
+            {else}
+            <div class="proListUc_history">
+              <div class="colFrame">
+                <ul style="left: 0px;" class="clearfix">
+                  {foreach from=$mai item=li}
+                  <li class="first"> <a href="#" title="{$li.goods_name}" target="_blank" class="img">
+                    <div class="mask"></div>
+                    <img src="{$li.goods_thumb}" alt="{$li.goods_name}"> </a> <a href="#" title="{$li.goods_name}" target="_blank" class="name">{$li.goods_name}</a>
+                    <p class="pri">￥{$li.goods_price}</p>
+                  </li>
+                  {/foreach}
+                </ul>
+              </div>
+              <p class="more"> <a href="index.php" target="_blank" title="继续购物">继续购物 &gt;</a> </p>
+            </div>
+            {/if} 
+            <!-- *浏览历史不为0时 end--> 
+          </div>
           <script>
 /*第一种形式 第二种形式 更换显示样式*/
 function setTabCatGoods(name,cursel,n){
@@ -101,21 +214,19 @@ menu.className=i==cursel?"line1":"line2";
 }
 </script>
           <div class="middle collect">
-            <!--
             <div class="line1" id="tab1" onmouseover="setTabCatGoods('tab',1,2)">
               <div class="title"><i></i><span>商品收藏</span></div>
             </div>
             <div class="line2" id="tab2" onmouseover="setTabCatGoods('tab',2,2)">
               <div class="title"><i></i><span>店铺关注</span></div>
             </div>
-            -->
             <div style="height:0px;line-height:0px;clear:both"></div>
             <div class="tab_con" style="width:100%">
-              <div class=""  id="con_tab_1"> {if $collection eq array() }
+              <div class=""  id="con_tab_1"> {if $collection eq array() } 
                 <!-- *商品收藏数量为0时 start-->
-                <div class="emptyFrame_collect"> <i class="user_bg"></i><span>您的收藏空空的，赶快去看看吧！</span> </div>
-                <!-- *商品收藏数量为0时 end-->
-                <!-- *商品收藏数量不为0时 start-->
+                <div class="emptyFrame_collect"> <i class="user_bg"></i><span>您的收藏空空的，赶快去购物吧！</span> </div>
+                <!-- *商品收藏数量为0时 end--> 
+                <!-- *商品收藏数量不为0时 start--> 
                 {else}
                 <div class="colList clearfix">
                   <div class="colFrame">
@@ -129,14 +240,14 @@ menu.className=i==cursel?"line1":"line2";
                   </div>
                   <p class="more"> <a href="user.php?act=collection_list" title="查看收藏的所有商品">查看收藏的所有商品 &gt;</a> </p>
                 </div>
-                {/if}
-                <!-- *商品收藏数量不为0时 end-->
+                {/if} 
+                <!-- *商品收藏数量不为0时 end--> 
               </div>
-              <div id="con_tab_2" style="display:none"> {if $guanzhu eq array()}
+              <div id="con_tab_2" style="display:none"> {if $guanzhu eq array()} 
                 <!-- *店铺收藏数量为0时 start-->
                 <div class="emptyFrame_shop"  > <i class="user_bg"></i><span>您的店铺收藏空空的，赶快去收藏店铺吧！</span> </div>
-                <!-- *店铺收藏数量为0时 end-->
-                <!-- *店铺收藏数量不为0时 start-->
+                <!-- *店铺收藏数量为0时 end--> 
+                <!-- *店铺收藏数量不为0时 start--> 
                 {else}
                 <div class="shopList clearfix">
                   <div class="colFrame">
@@ -152,8 +263,8 @@ menu.className=i==cursel?"line1":"line2";
                   </div>
                   <p class="more"> <a href="user.php?act=follow_shop" title="查看收藏的所有店铺">查看收藏的所有店铺 &gt;</a> </p>
                 </div>
-
-                <!-- *店铺收藏数量不为0时 end-->
+                 
+                <!-- *店铺收藏数量不为0时 end--> 
                 {/if} </div>
             </div>
           </div>
