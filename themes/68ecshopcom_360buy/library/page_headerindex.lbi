@@ -14,8 +14,14 @@
 					?>
                 	<p class="tel">全国统一服务热线：0539-8888888</p>
 					{if $user_info}
-                    <p class="orange"><a href="user.php">{$user_info.username}</a></p>
-                    <p>丨</p><p><a href="user.php?act=logout">{$lang.user_logout}</a> </p>
+
+                    <p class="orange">
+						<a class="sn-login" style="color:red" href="user.php?act=account_deposit" target="_top">充值&nbsp;&nbsp;</a>
+						<a href="user.php">{$user_info.username}</a></p>
+                    <p>丨</p>
+					<p>
+						<a href="user.php?act=logout">{$lang.user_logout}</a>
+					</p>
 					{else}
 					<p class="orange"><a class="orange" href="user.php">登陆</a></p>
                     <p>丨</p><p><a href="register.php">注册</a></p>
