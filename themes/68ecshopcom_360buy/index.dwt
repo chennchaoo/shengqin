@@ -37,17 +37,25 @@
 			diag.show();
 		}
 		</script>
+
  
 </head>
 
 <body>
+<div class="xuanfu-left">
+	<!--<img src="../../images/201903/goods_img/505_P_1551927666585.jpg">-->
+</div>
+<div class="xuanfu-right">
 
+</div>
 <!--------------------右侧悬浮 start------------------------>
+<!--
 <div id="xuanfu" class="xuanfu">
 	<a href="user.php"><img src="themes/68ecshopcom_360buy/img/zhongxin.png" /></a>
     <a href="http://wpa.qq.com/msgrd?v=3&uin={$qq}&site=qq&menu=yes" target="_blank" alt="点击这里联系我" title="点击这里联系我"><img src="themes/68ecshopcom_360buy/img/kefu.png" /></a>
 	<a href="#" onclick="chickdisplay()"><img src="themes/68ecshopcom_360buy/img/cha.jpg" /></a>
 </div>
+-->
 <!--------------------右侧悬浮 end------------------------>
 
 <!------------------------top-start-------------------> 
@@ -61,6 +69,24 @@
 .myscroll li { height: 35px;}
 .myscroll a { color: #333; text-decoration: none;}
 .myscroll a:hover { color: #ED5565; text-decoration: underline;}
+.xuanfu-left {
+	width: 250px;
+	height: 500px;
+	position: fixed;
+	left: 50px;
+	top: 240px;
+	z-index: 9999999;
+	background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");
+}
+.xuanfu-right {
+	width: 250px;
+	height: 500px;
+	position: fixed;
+	right: 50px;
+	top: 240px;
+	z-index: 9999999;
+	background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");
+}
 </style>
  <div id="flright">
  	<span><a href="article_cat.php?id=12">更多>></a></span>
