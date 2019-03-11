@@ -42,11 +42,12 @@
 </head>
 
 <body>
-<div class="xuanfu-left">
+<div class="xuanfu-left" id="xuanfu-left">
 	<!--<img src="../../images/201903/goods_img/505_P_1551927666585.jpg">-->
+	<a href="#" onclick="displayleft()">X</a>
 </div>
-<div class="xuanfu-right">
-
+<div class="xuanfu-right" id="xuanfu-right">
+	<a href="#" onclick="displayright()">X</a>
 </div>
 <!--------------------右侧悬浮 start------------------------>
 <!--
@@ -87,6 +88,15 @@
 	z-index: 9999999;
 	background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");
 }
+	 .xuanfu-left a,.xuanfu-right a{
+		 width:50px;height:50px;
+		 display: block;
+		 font-size:40px;
+		 color:white;
+		 margin-left:5px;
+		 background:rgba(0,0,0,0.6);
+		 text-align: center;
+	 }
 </style>
  <div id="flright">
  	<span><a href="article_cat.php?id=12">更多>></a></span>
@@ -165,7 +175,12 @@
 function chickdisplay(){
 		document.getElementById("xuanfu").style.display='none';
 }
-
+ function displayleft(){
+	 document.getElementById("xuanfu-left").style.display='none';
+ }
+ function displayright(){
+	 document.getElementById("xuanfu-right").style.display='none';
+ }
 function chick2(){
 		document.getElementById("reixiao2").style.display='block';
 		document.getElementById("reixiao1").style.display='none';
