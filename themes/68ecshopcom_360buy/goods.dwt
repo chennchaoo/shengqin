@@ -21,7 +21,7 @@
     .extra{
       clear: both;
       text-align: center;
-      width: 990px;
+      width: 1290px;
       margin:0 auto;
     }
     .extra img{
