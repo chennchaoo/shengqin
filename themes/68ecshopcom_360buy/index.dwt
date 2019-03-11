@@ -42,12 +42,25 @@
 </head>
 
 <body>
-<div class="xuanfu-left" id="xuanfu-left">
+<div class="xuanfu-left xuanfu-div" id="xuanfu-left">
 	<!--<img src="../../images/201903/goods_img/505_P_1551927666585.jpg">-->
-	<a href="#" onclick="displayleft()">X</a>
+	<a class="xuanfu-a" href="#" onclick="displayleft()">X</a>
+	<!--<div style="background: #50b5b5">搞笑</div>
+	<div style="background:#f67f37">健康</div>
+	<div style="background: #5abef0">两性</div>-->
+
+	<div style="background:rgba(80,181,181,.8)">搞笑</div>
+	<div style="background:rgba(246,127,55,.8)">健康</div>
+	<div style="background:rgba(90,190,240,.8)">两性</div>
 </div>
-<div class="xuanfu-right" id="xuanfu-right">
-	<a href="#" onclick="displayright()">X</a>
+<div class="xuanfu-right xuanfu-div" id="xuanfu-right">
+	<a class="xuanfu-a" href="#" onclick="displayright()">X</a>
+	<!--<div style="background: #50b5b5">情感</div>
+	<div style="background:#2d9b5e">房产</div>
+	<div style="background: #5b1e02">汽车</div>-->
+	<div style="background: rgba(80,181,181,.8)">情感</div>
+	<div style="background:rgba(45,155,94,.8)">房产</div>
+	<div style="background: rgba(91,30,2,.8)">汽车</div>
 </div>
 <!--------------------右侧悬浮 start------------------------>
 <!--
@@ -77,7 +90,8 @@
 	left: 50px;
 	top: 240px;
 	z-index: 9999999;
-	background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");
+	/*background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");*/
+	/*background: url("http://p3.pstatp.com/large/1a0950002427fa7a6df3f");*/
 }
 .xuanfu-right {
 	width: 250px;
@@ -86,9 +100,9 @@
 	right: 50px;
 	top: 240px;
 	z-index: 9999999;
-	background: url("../../images/201903/goods_img/505_P_1551927666585.jpg");
+	/*background: url("http://p1.pstatp.com/large/1a0920002432acb79688b");*/
 }
-	 .xuanfu-left a,.xuanfu-right a{
+	 .xuanfu-a{
 		 width:50px;height:50px;
 		 display: block;
 		 font-size:40px;
@@ -96,6 +110,16 @@
 		 margin-left:5px;
 		 background:rgba(0,0,0,0.6);
 		 text-align: center;
+		 margin-top:5px;
+		 position: absolute;
+		 top:5px;left:5px;
+	 }
+	 .xuanfu-div div{
+		 width:100%;
+		 height:200px;
+		 text-align: center;
+		 line-height: 200px;
+		 font-size:40px;
 	 }
 </style>
  <div id="flright">
