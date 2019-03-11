@@ -22,5 +22,5 @@
 	<!--<a href="user.php?act=vc_login" class="item {if $action eq 'vc_login'}curs{/if}">储值卡充值</a>-->
 	{* 代码增加_end  By  www.68ecshop.com *}
       </div>
-      
+
 </div>

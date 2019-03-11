@@ -89,14 +89,14 @@ b-a-n .b-right .b-right-2 img:hover{
   <div class="w main">
   <div class="b-a-n">
   	<div class="b-left">
-    
+
 	<script type="text/javascript" src="themes/68ecshopcom_360buy/js/index.js"></script>
-    
+
     <div class="mainbanner">
 	<!-- #BeginLibraryItem "/library/category_ad.lbi" --><!-- #EndLibraryItem -->
 	</div>
-    
-    
+
+
     </div>
     <div class="b-right">
 	<!--{if $parent eq 3}-->
@@ -107,7 +107,7 @@ b-a-n .b-right .b-right-2 img:hover{
 		{insert name='ads' id=257 num=2}
 	<!--{/if}-->
     </div>
-  
+
   </div>
   <div style="height:10px;"></div>
   <div class="c-b-1"></div>

@@ -763,7 +763,6 @@ function action_release_view(){
     $id = (isset($_REQUEST['id']) && preg_match('/^-?[1-9]\d*$/', $_REQUEST['id'])) ? intval($_REQUEST['id']) : 0;
     $sql = 'SELECT *  FROM ' .$GLOBALS['ecs']->table('release_information') . ' WHERE id='.$id;
     $info = $db->getRow($sql);
-    
     $current = release_category($info['type_id']-1);
     $here = '';
     if(!empty($info['title'])){
