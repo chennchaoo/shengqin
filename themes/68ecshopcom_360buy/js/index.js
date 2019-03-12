@@ -7,7 +7,7 @@ $(function(){
 		var $items = $list.children();
 		var $window_ul = $window_b.find('#slideContainer');
 		var count = $items.length;
-		var item_size = 960;
+		var item_size = 1450;
 		var dur_ms = 1000;
 		var autoplay_interval = 2500;		
 		var cur_idx = 0;

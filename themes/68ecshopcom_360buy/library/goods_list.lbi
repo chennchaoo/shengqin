@@ -93,7 +93,7 @@
       <ul class="list_pic">
         <!--{foreach from=$goods_list item=goods name=name}--> 
         <!-- {if $goods.goods_id} -->
-        <li class="item" {if $smarty.foreach.name.iteration % 5 eq 1}style="margin-left:0px;"{/if} id="li_{$goods.goods_id}">
+        <li class="item" {if $smarty.foreach.name.iteration % 6 eq 1}style="margin-left:0px;"{/if} id="li_{$goods.goods_id}">
           <div class="goods-content" style="position:relative">
             <div class="goods-pic" ><a href="{$goods.url}" target="_blank"  title="{$goods.name|escape:html}"><img data-original="{$goods.goods_thumb}" src="{$goods.goods_thumb}" title="{$goods.name|escape:html}" class="pic_img_{$goods.goods_id}"></a> </div>
 		<!--{if $goods.goods_number eq 0}--><a href="{$goods.url}" class="shop_over1"></a><!-- {/if} -->
