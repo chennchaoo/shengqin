@@ -1,1 +1,3 @@
 temp/
+/data/config.php
+/admin/error_log.txt
